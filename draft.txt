@@ -1,0 +1,371 @@
+
+CREATE TRIGGER check_if_not_enough_quantity_before_insert
+before insert on OrderDetails
+begin
+select case
+	when (select typeof(NEW.Quantity)) != 'integer' then
+	raise(ABORT, 'Type of Quantity must be integer')
+        when NEW.Quantity > (select Unit from Products where ProductID = NEW.ProductID) then
+        raise(ABORT, 'Not enough item in warehouse')
+        when NEW.Quantity <= 0 then
+        raise(ABORT, 'Quantity cannot be equal or less than 0')
+        end;
+end;
+CREATE TRIGGER check_if_not_enough_quantity_before_update
+before update on OrderDetails
+begin
+select case
+	when (select typeof(NEW.Quantity)) != 'integer' then
+	raise(ABORT, 'Type of Quantity must be integer')
+        when NEW.Quantity > (select Unit from Products where ProductID = NEW.ProductID) then
+        raise(ABORT, 'Not enough item in warehouse')
+        when NEW.Quantity <= 0 then
+        raise(ABORT, 'Quantity cannot be equal or less than 0')
+        end;
+end;
+
+CREATE TRIGGER order_payment_before_update_trigger
+before update on OrderPayments
+for each row
+begin 
+select case
+	when OLD.Status == 'paid' then 
+		raise(ABORT,'Cannot update on a paid order.')
+	when OLD.Status == 'cancelled' then
+		raise(ABORT,'Cannot update on a cancelled order.')
+	when NEW.PaymentMethod = '' or NEW.PaymentMethod is NULL then
+		raise(ABORT,'Payment Method cannot be blank.')
+	when NEW.Status != 'unpaid' and NEW.Status != 'paid' and NEW.Status != 'cancelled' then
+		raise(ABORT,'Payment Status must be unpaid, paid or cancelled')
+	when OLD.OrderID != NEW.OrderID then
+		raise(ABORT,'Order ID cannot be changed')
+	when NEW.Status == 'paid' and (select count(*) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID and OrderDetails.Quantity > Products.Unit) > 0 then
+		raise(ABORT,'Not enough item in warehouse') 
+end;
+end;
+DROP TRIGGER order_payment_before_update_trigger_2;
+CREATE TRIGGER order_payment_before_update_trigger_2
+before update on OrderPayments
+for each row
+when NEW.Status == 'paid'
+begin	
+	select case 
+		when NEW.Total <> OLD.Total and NEW.Total = OLD.Total then
+		raise(ABORT,'Total cannot be changed')
+	end;
+	update OrderPayments 
+	set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),
+	Status = 'paid',
+	PaymentMethod = NEW.PaymentMethod
+	where OrderID = NEW.OrderID;
+	update Products 
+	set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)
+	where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
+end;
+DROP TRIGGER order_payment_before_update_trigger_3;
+CREATE TRIGGER order_payment_before_update_trigger_3
+before update on OrderPayments
+for each row
+when NEW.Status == 'cancelled' or NEW.Status == 'unpaid'
+begin
+		select case 
+			when NEW.Total <> OLD.Total and NEW.Total = OLD.Total then
+			raise(ABORT,'Total cannot be changed')
+		end;
+		update OrderPayments 
+		set Total = 0,
+		PaymentMethod = NEW.PaymentMethod,
+		Status = New.Status
+		where OrderID = NEW.OrderID;
+		
+end; 
+
+CREATE TRIGGER order_payment_before_insert_trigger
+before insert on OrderPayments
+begin
+	select case
+		when Total != 0 or Status != 'unpaid' then
+		raise(ABORT,'Inserted Payment Total must be 0 and Status must be unpaid.')
+	end;
+end; 
+
+
+CREATE TRIGGER order_payment_after_update_trigger_1
+after update on OrderPayments
+when NEW.Status == 'unpaid'
+begin
+	update OrderPayments set Total = 0 where OrderID = NEW.OrderID;
+end;
+
+CREATE TRIGGER order_payment_after_update_trigger_2
+after update on OrderPayments
+when NEW.Status == 'paid' 
+begin
+	update OrderPayments set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID) where OrderID = NEW.OrderID;
+	update Products 
+	set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID) 
+	where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
+end;
+
+
+update Products set Unit = Unit + 1 where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
+
+select Orders.OrderID, Orders.CustomerID, CustomerName, Orders.EmployeeID, (LastName || " " || FirstName), Orders.ShipperID, ShipperName, Total, PaymentMethod, OrderPayments.Status from Orders 
+inner join Customers on Orders.CustomerID = Customers.CustomerID 
+inner join Employees on Orders.EmployeeID = Employees.EmployeeID 
+inner join Shippers on Orders.ShipperID = Shippers.ShipperID
+inner join OrderPayments on Orders.OrderID = OrderPayments.OrderID;
+
+PRAGMA foreign_keys=off;
+
+BEGIN TRANSACTION;
+
+ALTER TABLE Shippers RENAME TO Shippers_old;
+ALTER TABLE Customers RENAME TO Customers_old;
+ALTER TABLE Suppliers RENAME TO Suppliers_old;
+ALTER TABLE Categories RENAME TO Categories_old;
+ALTER TABLE Products RENAME TO Products_old;
+ALTER TABLE Employees RENAME TO Employeess_old;
+ALTER TABLE Orders RENAME TO Orders_old;
+ALTER TABLE OrderDates RENAME TO OrderDates_old;
+ALTER TABLE OrderPayments RENAME TO OrderPayments_old;
+ALTER TABLE OrderDetails RENAME TO OrderDetails_old;
+
+CREATE TABLE Shippers(
+	ShipperID varchar(10) unique primary key,
+	ShipperName varchar(255),Phone varchar(20), 
+	Status varchar(20));
+CREATE TABLE Customers(
+	CustomerID varchar(10) unique primary key,
+	CustomerName varchar(255),
+	ContactName varchar(255),
+	Address varchar(255),
+	City varchar(255),
+	PostalCode varchar(10),
+	Country varchar(255), 
+	Status varchar(20));
+CREATE TABLE Suppliers(
+	SupplierID varchar(10) unique primary key,
+	SupplierName varchar(255),
+	ContactName varchar(255),
+	Address varchar(255),
+	City varchar(255),
+	PostalCode varchar(10),
+	Country varchar(255),
+	Phone varchar(20),
+	Status varchar(20));
+CREATE TABLE Categories(
+	CategoryID varchar(10) unique primary key,
+	CategoryName varchar(255),
+	Description text);
+CREATE TABLE Products(
+	ProductID varchar(10) unique primary key,
+	ProductName varchar(255),
+	SupplierID varchar(10),
+	CategoryID varchar(10),
+	Unit int,
+	Price real,
+	foreign key(SupplierID) references Suppliers(SupplierID),
+	foreign key(CategoryID) references Categories(CategoryID)
+);
+CREATE TABLE Employees (
+        EmployeeID varchar(10) unique primary key,
+        LastName varchar(255),
+        FirstName varchar(255),
+        BirthDate varchar(10),
+        Notes TEXT,
+        Status varchar(20)
+
+);
+CREATE TABLE Orders(
+	OrderID varchar(10) unique primary key,
+	CustomerID varchar(10),
+	EmployeeID varchar(10),
+	ShipperID varchar(10),
+	foreign key(CustomerID) references Customers(CustomerID),
+	foreign key(EmployeeID) references "_Employees_old"(EmployeeID),
+	foreign key(ShipperID) references Shippers(ShipperID)
+);
+CREATE TABLE OrderDates(
+	OrderID varchar(10) unique primary key,
+	Date text,
+	foreign key(OrderID) references Orders(OrderID)
+);
+CREATE TABLE OrderPayments(
+	OrderID varchar(10) unique primary key,
+	Total real,
+	PaymentMethod varchar(20),
+	Status varchar(20),
+	foreign key(OrderID) references Orders(OrderID)
+);
+CREATE TABLE OrderDetails(
+	OrderID varchar(10),
+	ProductID varchar(10),
+	Quantity int,
+	foreign key(OrderID) references Orders(OrderID),
+	foreign key(ProductID) references Products(ProductID),
+	CONSTRAINT PK_OrderDetailID PRIMARY KEY (OrderID, ProductID)
+);
+
+
+
+
+INSERT INTO Shippers SELECT * FROM Shippers_old;
+INSERT INTO Customers SELECT * FROM Customers_old;
+INSERT INTO Suppliers SELECT * FROM Suppliers_old;
+INSERT INTO Categories SELECT * FROM Categories_old;
+INSERT INTO Products SELECT * FROM Products_old;
+INSERT INTO Employees SELECT * FROM Employeess_old;
+INSERT INTO Orders SELECT * FROM Orders_old;
+INSERT INTO OrderDates SELECT * FROM OrderDates_old;
+INSERT INTO OrderPayments SELECT * FROM OrderPayments_old;
+INSERT INTO OrderDetails SELECT * FROM OrderDetails_old;
+
+COMMIT;
+
+PRAGMA foreign_keys=on;
+
+CREATE TRIGGER auto_add_order_payment
+after insert on Orders
+begin
+	insert into OrderPayments values (NEW.OrderID,0,'','unpaid');
+end;
+CREATE TRIGGER auto_add_order_date
+after insert on Orders
+begin
+	insert into OrderDates values (NEW.OrderID,datetime('now','localtime'));
+end;
+CREATE TRIGGER block_update_on_order_dates
+before update on OrderDates
+begin
+select
+case
+        when true
+        then raise(ABORT,'Update on OrderDates is prohibited')
+        end;
+end;
+CREATE TRIGGER check_if_not_enough_quantity_before_insert
+before insert on OrderDetails
+begin
+select case
+        when (select typeof(NEW.Quantity)) != 'integer' then
+        raise(ABORT, 'Type of Quantity must be integer')
+        when NEW.Quantity > (select Unit from Products where ProductID = NEW.ProductID) then
+        raise(ABORT, 'Not enough item in warehouse')
+        when NEW.Quantity <= 0 then
+        raise(ABORT, 'Quantity cannot be equal or less than 0')
+        end;
+end;
+CREATE TRIGGER check_if_not_enough_quantity_before_update
+before update on OrderDetails
+begin
+select case
+        when (select typeof(NEW.Quantity)) != 'integer' then
+        raise(ABORT, 'Type of Quantity must be integer')
+        when NEW.Quantity > (select Unit from Products where ProductID = NEW.ProductID) then
+        raise(ABORT, 'Not enough item in warehouse')
+        when NEW.Quantity <= 0 then
+        raise(ABORT, 'Quantity cannot be equal or less than 0')
+        end;
+end;
+CREATE TRIGGER order_payment_before_insert_trigger
+before insert on OrderPayments
+begin
+        select case
+                when NEW.Total != 0 or NEW.Status != 'unpaid' then
+                raise(ABORT,'Inserted Payment Total must be 0 and Status must be unpaid.')
+        end;
+end;
+CREATE TRIGGER order_payment_after_update_trigger_1
+after update on OrderPayments
+when NEW.Status == 'unpaid'
+begin
+        update OrderPayments set Total = 0 where OrderID = NEW.OrderID;
+end;
+CREATE TRIGGER order_payment_before_update_trigger
+before update on OrderPayments
+for each row
+begin
+select case
+        when OLD.Status == 'paid' then
+                raise(ABORT,'Cannot update on a paid order.')
+        when OLD.Status == 'cancelled' then
+                raise(ABORT,'Cannot update on a cancelled order.')
+        when NEW.PaymentMethod = '' or NEW.PaymentMethod is NULL then
+                raise(ABORT,'Payment Method cannot be blank.')
+        when NEW.Status != 'unpaid' and NEW.Status != 'paid' and NEW.Status != 'cancelled' then
+                raise(ABORT,'Payment Status must be unpaid, paid or cancelled')
+        when OLD.OrderID != NEW.OrderID then
+                raise(ABORT,'Order ID cannot be changed')
+        when NEW.Status == 'paid' and (select count(*) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID and OrderDetails.Quantity > Products.Unit) > 0 then
+                raise(ABORT,'Not enough item in warehouse')
+end;
+end;
+CREATE TRIGGER order_payment_before_update_trigger_2
+before update on OrderPayments
+for each row
+when NEW.Status == 'paid'
+begin
+        select case
+                when NEW.Total <> OLD.Total and NEW.Total = OLD.Total then
+                raise(ABORT,'Total cannot be changed')
+        end;
+        update OrderPayments
+        set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),
+        Status = 'paid',
+        PaymentMethod = NEW.PaymentMethod
+        where OrderID = NEW.OrderID;
+        update Products
+        set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)
+        where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
+end;
+CREATE TRIGGER order_payment_before_update_trigger_3
+before update on OrderPayments
+for each row
+when NEW.Status == 'cancelled' or NEW.Status == 'unpaid'
+begin
+                select case
+                        when NEW.Total <> OLD.Total and NEW.Total = OLD.Total then
+                        raise(ABORT,'Total cannot be changed')
+                end;
+                update OrderPayments
+                set Total = 0,
+                PaymentMethod = NEW.PaymentMethod,
+                Status = New.Status
+                where OrderID = NEW.OrderID;
+
+end;
+
+DROP TRIGGER auto_add_order_payment;
+DROP TRIGGER auto_add_order_date;
+DROP TRIGGER block_update_on_order_dates;
+DROP TRIGGER check_if_not_enough_quantity_before_insert;
+DROP TRIGGER check_if_not_enough_quantity_before_update;
+DROP TRIGGER order_payment_before_insert_trigger;
+DROP TRIGGER order_payment_after_update_trigger_1;
+DROP TRIGGER order_payment_before_update_trigger;
+DROP TRIGGER order_payment_before_update_trigger_2;
+DROP TRIGGER order_payment_before_update_trigger_3;
+
+
+SELECT * FROM Shippers;
+SELECT * FROM Customers;
+SELECT * FROM Suppliers;
+SELECT * FROM Categories;
+SELECT * FROM Products;
+SELECT * FROM Employeess;
+SELECT * FROM Orders;
+SELECT * FROM OrderDates;
+SELECT * FROM OrderPayments;
+SELECT * FROM OrderDetails;
+
+DROP TABLE Shippers_old;
+DROP TABLE Customers_old;
+DROP TABLE Suppliers_old;
+DROP TABLE Categories_old;
+DROP TABLE Products_old;
+DROP TABLE Employeess_old;
+DROP TABLE Orders_old;
+DROP TABLE OrderDates_old;
+DROP TABLE OrderPayments_old;
+DROP TABLE OrderDetails_old;

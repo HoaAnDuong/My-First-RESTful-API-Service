@@ -26,22 +26,32 @@ title.pack(padx=5,pady=5)
 frame_1 = tkinter.Frame(canvas,width=500,height=300, background="white")
 frame_1.pack(padx=5,pady=5)
 
+option = tkinter.IntVar()
+
 v_scrollbar_1 = tkinter.Scrollbar(frame_1,orient='vertical')
 v_scrollbar_1.pack(side="right",fill="y")
 h_scrollbar_1 = tkinter.Scrollbar(frame_1,orient='horizontal')
 h_scrollbar_1.pack(side="bottom",fill="x")
+
+radio_button_1 = tkinter.Radiobutton(canvas,text = "One statement at a time",variable=option, value=0)
+radio_button_1.pack()
+radio_button_2 = tkinter.Radiobutton(canvas,text = "More than One statement at a time",variable=option, value=1)
+radio_button_2.pack()
 
 query_text = tkinter.Text(frame_1,font=("Cascadia Code","12"),xscrollcommand=h_scrollbar_1.set,yscrollcommand=v_scrollbar_1.set)
 v_scrollbar_1.config(command=query_text.yview)
 h_scrollbar_1.config(command=query_text.xview)
 query_text.pack()
 
-
 def querry():
     try:
-        for statement in query_text.get("1.0", "end-1c").split(";"):
-            cursor.execute(statement)
+        if option.get()==0:
+            cursor.execute(query_text.get("1.0", "end-1c"))
             query_out.insert("end", f"\n{cursor.fetchall()}")
+        elif option.get()==1:
+            for statement in query_text.get("1.0", "end-1c").split(";"):
+                cursor.execute(statement)
+                query_out.insert("end", f"\n{cursor.fetchall()}")
     except Exception as e:
         print(f"{type(e)}:{e}")
         query_out.insert("end", f"\n{type(e)}:{e}")
