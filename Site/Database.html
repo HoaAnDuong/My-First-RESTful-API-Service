@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="INTUITIVE">
+    <meta name="description" content="">
+    <title>Database</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Database.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.21.12, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Database">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-border-2 u-border-grey-75 u-clearfix u-header u-header" id="sec-02e7"><div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">My First RESTful API Webservice</h2>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="MD">
+          <div class="menu-collapse">
+            <a class="u-button-style u-nav-link" href="#" style="padding: 5px 0px; font-size: calc(1em + 12px);">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5bb2"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-5bb2" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Sending-Requests.html">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Database.html">Database</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Sending-Requests.html">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Database.html">Database</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-image u-section-1" id="sec-22f7" data-image-width="1280" data-image-height="720">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-3 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-white u-text-1">DATABASE</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-4ab5">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">This is the page for people who have curiosity on this project database.</span>
+          </h1>
+          <p>
+            <span class="u-text-body-color">
+              <span style="font-weight: 700;">Knowing the Database is knowing all the secrets of the Website</span>. However, because this project is just for references, I will show its all to you guys. *feel kind*
+            </span>
+          </p>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem;">The Database have a total of 10 tables containing all data for Store Management:</span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">Customers: contains Customers's information</li>
+            <li style="font-size: 1.25rem;">Employees: contains Employees's information&nbsp;</li>
+            <li style="font-size: 1.25rem;">Shippers: contains Shippers's information&nbsp;</li>
+            <li style="font-size: 1.25rem;">Suppliers: contains Suppliers's information&nbsp;</li>
+            <li style="font-size: 1.25rem;">Categories: contains Categories's information&nbsp;</li>
+            <li style="font-size: 1.25rem;">Products: contains Products's information&nbsp;</li>
+            <li style="font-size: 1.25rem;">Orders: contains Orders's information&nbsp;</li>
+            <li style="font-size: 1.25rem;">OrderDates: contains Orders's date</li>
+            <li style="font-size: 1.25rem;">OrderPayments: contains Orders payment's information</li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">Here's a glance look on Database's Diagram (created by DBVisualiser):</span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <img src="images/Diagram1.jpg" width="570" style="width: 629px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">Along with the database, I added a lot of triggers to manage the data:&nbsp;</span>
+          </p>
+          <p>
+            <img src="images/image4.png" width="570" style="width: 914px;" class="fr-dib fr-fic">
+          </p>
+          <p>In this project, before deploying server. I always connect on Database by <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://www.sqlite.org/download.html">SQLite command-line shell</a> program
+          </p>
+          <p>
+            <img src="images/image6.png" width="570" style="width: 919px;" class="fr-dib fr-fic">
+          </p>
+          <p>Here its UI:</p>
+          <p>
+            <img src="images/image31.png" width="570" align="center" style="width: 948px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">In below part, I will show you everything on my Database. Let's get started!!!</span>
+          </p>
+        </div>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+              <div class="fr-wrapper" dir="auto">
+                <div class="fr-element fr-view" dir="auto" spellcheck="true">
+                  <h1 style="text-align: center;">Table of C<a href="Database.html#carousel_1e1c">ontents</a>
+                  </h1>
+                  <ol>
+                    <li>
+                      <a href="Database.html#carousel_1e1c"></a>
+                      <span style="font-size: 1.25rem;">
+                        <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="Database.html#carousel_1e1c">Tables</a>
+                      </span>
+                      <ol>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="Database.html#sec-b183">Customers</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" href="Database.html#carousel_4bfc">Employees</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5" href="Database.html#carousel_b0e7">Shippers</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-6" href="Database.html#carousel_17a7">Suppliers</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="Database.html#carousel_43f4">Categories</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="Database.html#carousel_7a46">Products</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="Database.html#carousel_cae5">Orders</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="Database.html#carousel_f305">OrderDates</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="Database.html#carousel_dbb9">OrderPayments</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-12" href="Database.html#carousel_a347">OrderDetails</a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-13" href="Database.html#sec-c9b8">Triggers</a>
+                      <ol>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-14" href="Database.html#carousel_0a2f">auto_add_order_payment</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-15" href="Database.html#sec-51c3">auto_add_order_date</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-16" href="Database.html#sec-97d9">block_update_on_order_dates</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-17" href="Database.html#carousel_58b2">check_if_not_enough_quantity_before_insert</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-18" href="Database.html#carousel_976e">check_if_not_enough_quantity_before_update</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-19" href="Database.html#carousel_03ec">order_payment_before_insert_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-20" href="Database.html#carousel_283e">order_payment_after_update_trigger_1</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-21" href="Database.html#carousel_631c">order_payment_before_update_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-22" href="Database.html#carousel_ee22">order_payment_before_update_trigger_2</a>
+                        </li>
+                        <li id="isPasted">
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-23" href="Database.html#carousel_6747">order_payment_before_update_trigger_3</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-24" href="Database.html#carousel_03ec">order_details_before_insert_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-25" href="Database.html#carousel_7b05">order_details_before_update_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-26" href="Database.html#carousel_898e">order_details_before_delete_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-27" href="Database.html#carousel_ffa3">delete_relatives_after_delete_on_orders</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-28" href="Database.html#carousel_841a">order_dates_before_delete_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-29" href="Database.html#carousel_60e1">order_payments_before_delete_trigger</a>
+                        </li>
+                        <li>
+                          <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-30" href="Database.html#carousel_6b71">orders_before_update</a>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="fr-second-toolbar">
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="carousel_1e1c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>1. Tables</h1>
+          <p>"A table is a collection of related data held in a table format within a database. It consists of columns and rows. In relational databases, and flat file databases, a table is a set of data elements using a model of vertical columns and horizontal rows, the cell being the unit where a row and column intersect."</p>
+          <p>In SQLite, a table is a SQL object that store data in a form of a table. Table usally store data of an object in a row, each cells in a row store value depends on the column it belong to. Tables is the core of the database.</p>
+          <p>You can create a SQLite Table using following query:</p>
+          <p style="line-height: 1;">CREATE TABLE [IF NOT EXISTS] [schema_name].table_name ( &nbsp; &nbsp;&nbsp;</p>
+          <p style="line-height: 1;">column_1 data_type PRIMARY KEY, &nbsp; &nbsp; &nbsp;&nbsp;</p>
+          <p style="line-height: 1;">column_2 data_type NOT NULL, &nbsp; &nbsp;</p>
+          <p style="line-height: 1;">column_3 data_type DEFAULT 0, &nbsp; &nbsp;&nbsp;</p>
+          <p style="line-height: 1;">table_constraints ) [WITHOUT ROWID];&nbsp;</p>
+          <p style="line-height: 1;">
+            <br>
+          </p>
+          <p>Beside user-created table, there're some system tables appearing in all SQLite Database: sqlite_master(listing all SQLite objects inside that database), sqlite_sequence(listing last number used for AUTOINCREMENT), sqlite_schema(listing all SQLite objects), etc.</p>
+          <p>To get all the tables infomation: select * from sqlite_schema where type = 'table';&nbsp;</p>
+          <p>To get table columns: pragma table_info(table_name);</p>
+          <p>
+            <br>
+          </p>
+          <p>Below section are Tables used on this project. I used HTML <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://jinja.palletsprojects.com/en/3.1.x/templates/">Jinja loop</a> for Display Tables. For example, I'm trying to display table Customers:
+          </p>
+          <p>In Python's Flask:</p>
+          <p>
+            <img src="images/image35.png" width="570" align="center" style="width: 1065px;" class="fr-dib fr-fic">
+          </p>
+          <p>In Database.html:</p>
+          <p>
+            <img src="images/image36.png" width="570" align="center" style="width: 1076px;" class="fr-dib fr-fic">
+          </p>
+          <p>{{row[i]}} : print row[i]</p>
+          <p>{% for row in customers_table %}&nbsp;</p>
+          <p>//create new headers&nbsp;</p>
+          <p>{% endfor %}: Create new headers for row in customers_table.</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-b183">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.1. Customers</h2>
+          <ul>
+            <li>Usage: Store Customers basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Customers(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CustomerID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CustomerName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ContactName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Address varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; City varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; PostalCode varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Country varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status varchar(20)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from Customers limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="12.3%">
+              <col width="12.3%">
+              <col width="12.7%">
+              <col width="16.5%">
+              <col width="8.9%">
+              <col width="11.2%">
+              <col width="13%">
+              <col width="13.099999999999998%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">CustomerID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">CustomerName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ContactName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Address</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">City</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">PostalCode</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Country</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Status</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> CUS0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Tran Van A</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Tran Van A</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">Hoa Khanh Bac, Lien Chieu, Da Nang</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Da Nang</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">555700</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell u-table-cell-15">Viet Nam</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="carousel_4bfc">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.2. Employees</h2>
+          <ul>
+            <li>Usage: Store Employees basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Employees(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; EmployeeID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; LastName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; FirstName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; BirthDate varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Notes TEXT,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status varchar(20)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from Employees limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="11.7%">
+              <col width="12.6%">
+              <col width="11.2%">
+              <col width="11.9%">
+              <col width="37.6%">
+              <col width="15.000000000000005%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">EmployeeID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">LastName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">FirstName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">BirthDate</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Note</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Status</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> EMP0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Nguyen</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Thanh A</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> 1998-07-06</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> A hard-working Salesman working to cover student life</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="carousel_b0e7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.3. Shippers</h2>
+          <ul>
+            <li>Usage: Store Shippers basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Shippers(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ShipperID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ShipperName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Phone varchar(20),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status varchar(20)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from Shippers limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="24.8%">
+              <col width="26.4%">
+              <col width="23.7%">
+              <col width="25.1%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ShipperID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ShipperName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Phone</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Status</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> SHI0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Doan Van A</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> 0123456789</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="carousel_17a7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.4. Suppliers</h2>
+          <ul>
+            <li>Usage: Store Suppers basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Suppliers(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; SupplierID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; SupplierName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ContactName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Address varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; City varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; PostalCode varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Country varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Phone varchar(20),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status varchar(20)</p>
+          <p style="line-height: 1;">);</p>
+          <p id="isPasted" style="line-height: 1;">Table (select * from Suppliers limit 5):</p>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="10.9%">
+              <col width="12.5%">
+              <col width="9.7%">
+              <col width="17.8%">
+              <col width="4.2%">
+              <col width="10.4%">
+              <col width="12.1%">
+              <col width="11.3%">
+              <col width="11.000000000000005%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">SupplierID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">SupplierName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ContactName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Address</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">City</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">PostalCode</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Country</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Phone</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Status</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> SUP0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Nha Cung Cap A</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">Nguyen Van A</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Hoa Khanh Bac, Lien Chieu, Da Nang</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">Da Nang</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">50608</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">Viet Nam</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">0987654321</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="carousel_43f4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.5. Categories</h2>
+          <ul>
+            <li>Usage: Store Categories basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Categories(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CategoryID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CategoryName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Description text</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from Categories limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="11%">
+              <col width="19.1%">
+              <col width="69.9%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">CategoryID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">CategoryName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Description</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> CAT0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Do uong</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Do uong co con, nuoc ngot, sua va tra.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="carousel_7a46">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.6. Products</h2>
+          <ul>
+            <li>Usage: Store Products basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Products(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ProductID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ProductName varchar(255),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; SupplierID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CategoryID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Unit int,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Price real,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(SupplierID) references Suppliers(SupplierID),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(CategoryID) references Categories(CategoryID)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from Products limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="7.2%">
+              <col width="43.7%">
+              <col width="11.6%">
+              <col width="12.3%">
+              <col width="8.5%">
+              <col width="16.499999999999996%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 44px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ProductID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ProductName</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">SupplierID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">CategoryID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Unit</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Price</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> PRO0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> Coca Cola Chai 1.5L</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> SUP0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">CAT0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">93</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">18000.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="carousel_cae5">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.7. Orders</h2>
+          <ul>
+            <li>Usage: Store Orders basic infomation.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE Orders(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; OrderID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CustomerID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; EmployeeID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ShipperID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(CustomerID) references Customers(CustomerID),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(EmployeeID) references Employees(EmployeeID),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(ShipperID) references Shippers(ShipperID)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from Orders limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="24.8%">
+              <col width="26.4%">
+              <col width="23.7%">
+              <col width="25.1%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">OrderID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">CustomerID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">EmployeeID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ShipperID</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">ORD0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">CUS0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">EMP0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> SHI0001</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="carousel_f305">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.8. OrderDates</h2>
+          <ul>
+            <li>Usage: Store Order's Dates.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE OrderDates(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; OrderID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Date text,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(OrderID) references Orders(OrderID)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from OrderDates limit 5):</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="20.9%">
+              <col width="79.1%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 44px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">OrderID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Date</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> ORD0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> 2022-11-05 23:31:27</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="carousel_dbb9">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.9. OrderPayments</h2>
+          <ul>
+            <li>Usage: Store Order's Payment infomation.&nbsp;</li>
+            <li>
+              <span style="font-weight: 700;">NOTICE:</span> Status can only be changed to "unpaid", "paid" (Automatically Calculate Total and Subtract Unit in Product), "cancelled" (Cancel Order)
+            </li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE OrderPayments(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; OrderID varchar(10) unique primary key,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Total real,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; PaymentMethod varchar(20),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status varchar(20),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(OrderID) references Orders(OrderID)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from OrderPayments limit 5):&nbsp;</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="24.8%">
+              <col width="26.4%">
+              <col width="23.7%">
+              <col width="25.1%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">OrderID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Total</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">PaymentMethod</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Status</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> ORD0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">156000.0</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">Cash</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">paid</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="carousel_a347">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.10. OrderDetails</h2>
+          <ul>
+            <li>Usage: Store Order's Details.&nbsp;</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TABLE OrderDetails(</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; OrderID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; ProductID varchar(10),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Quantity int,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(OrderID) references Orders(OrderID),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; foreign key(ProductID) references Products(ProductID),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; CONSTRAINT PK_OrderDetailID PRIMARY KEY (OrderID, ProductID)</p>
+          <p style="line-height: 1;">);</p>
+          <ul>
+            <li id="isPasted">Table (select * from OrderDetails limit 5):&nbsp;</li>
+          </ul>
+        </div>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="33.7%">
+              <col width="32.2%">
+              <col width="34.1%">
+            </colgroup>
+            <thead class="u-align-left u-black u-table-header u-table-header-1">
+              <tr style="height: 35px;">
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">OrderID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">ProductID</th>
+                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell">Quantity</th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 75px;">
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"> ORD0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">PRO0001</td>
+                <td class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="sec-c9b8">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>2. Triggers</h1>
+          <p>Triggers are SQL objects which is executed automatically when an insert, update, delete statement is issued. Triggers is helpful in Database Managing. For example, you can use Triggers to write log, to enforce rules on transaction, etc.</p>
+          <p>Comparing to a typical Program used for processing data in Database, Triggers are much more secured and high-reliable, because what a Program can do to a Database is just excuting statements, which is managed by Database's Triggers.</p>
+          <p>To create a new trigger in SQLite, you use the CREATE TRIGGER statement as follows:</p>
+          <p>CREATE TRIGGER [IF NOT EXISTS] trigger_name &nbsp; &nbsp;</p>
+          <p>[BEFORE|AFTER|INSTEAD OF(View only)] [INSERT|UPDATE|DELETE] &nbsp; &nbsp;ON table_name &nbsp;&nbsp;</p>
+          <p>[WHEN condition]</p>
+          <p>BEGIN statements;&nbsp;</p>
+          <p>END;</p>
+          <p>To get all the triggers:</p>
+          <p>SELECT SQL FROM sqlite_master WHERE type = 'trigger';</p>
+          <p>Below sections are Triggers I added to this database. Some of them maybe useless, some of them maybe not restricted enough. However, these triggers seem helpful in Database Managing.</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="carousel_0a2f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.1. auto_add_order_payment</h2>
+          <ul>
+            <li>Usage: Auto add a OrderPayment when a new Order is inserted</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER auto_add_order_payment</p>
+          <p style="line-height: 1;">after insert on Orders</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; insert into OrderPayments values (NEW.OrderID,0,'','unpaid');</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="sec-51c3">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.2. auto_add_order_date</h2>
+          <ul>
+            <li>Usage: Auto add a OrderDate when a new Order is inserted</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER auto_add_order_date</p>
+          <p style="line-height: 1;">after insert on Orders</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; insert into OrderDates values (NEW.OrderID,datetime('now','localtime'));</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="sec-97d9">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.3. block_update_on_order_dates</h2>
+          <ul>
+            <li>Usage: Block update on OrderDates (certainly)</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER block_update_on_order_dates</p>
+          <p style="line-height: 1;">before update on OrderDates</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select</p>
+          <p style="line-height: 1;">case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when true</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; then raise(ABORT,'Update on OrderDates is prohibited')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-18" id="carousel_58b2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.4. check_if_not_enough_quantity_before_insert&nbsp;</h2>
+          <ul>
+            <li>Usage: Check quantity before insert</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER check_if_not_enough_quantity_before_insert</p>
+          <p style="line-height: 1;">before insert on OrderDetails</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (select typeof(NEW.Quantity)) != 'integer' then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT, 'Type of Quantity must be integer')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.Quantity &gt; (select Unit from Products where ProductID = NEW.ProductID) then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT, 'Not enough item in warehouse')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.Quantity &lt;= 0 then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT, 'Quantity cannot be equal or less than 0')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-19" id="carousel_976e">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.5. check_if_not_enough_quantity_before_update &nbsp;</h2>
+          <ul>
+            <li>Usage: Check item before update</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER check_if_not_enough_quantity_before_update</p>
+          <p style="line-height: 1;">before update on OrderDetails</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (select typeof(NEW.Quantity)) != 'integer' then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT, 'Type of Quantity must be integer')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.Quantity &gt; (select Unit from Products where ProductID = NEW.ProductID) then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT, 'Not enough item in warehouse')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.Quantity &lt;= 0 then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT, 'Quantity cannot be equal or less than 0')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-20" id="carousel_a938">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.5. check_if_not_enough_quantity_before_update &nbsp;</h2>
+          <ul>
+            <li>Usage: Force Inserted Payment Total to be 0 and Status must be unpaid.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted">CREATE TRIGGER order_payment_before_insert_trigger</p>
+          <p>before insert on OrderPayments</p>
+          <p>begin</p>
+          <p>&nbsp; &nbsp; &nbsp; &nbsp; select case</p>
+          <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; when NEW.Total != 0 or NEW.Status != 'unpaid' then</p>
+          <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Inserted Payment Total must be 0 and Status must be unpaid.')</p>
+          <p>&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p>end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-21" id="carousel_283e">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.7. order_payment_after_update_trigger_1 &nbsp;&nbsp;</h2>
+          <ul>
+            <li>Usage: Reset Order whose Status = 'unpaid' Total to 0 (no cheater)</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_payment_after_update_trigger_1</p>
+          <p style="line-height: 1;">after update on OrderPayments</p>
+          <p style="line-height: 1;">when NEW.Status == 'unpaid'</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; update OrderPayments set Total = 0 where OrderID = NEW.OrderID;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-22" id="carousel_631c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.8. order_payment_before_update_trigger &nbsp;&nbsp;</h2>
+          <ul>
+            <li>Usage: Enforce Some Rules before update OrderPayment: Block update on 'paid' and 'cancelled' Orders, Block empty PaymentMethod, Force Status can only be 'unpaid', 'paid', 'cancelled', Block empty OrderDetails related to that ID.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_payment_before_update_trigger</p>
+          <p style="line-height: 1;">before update on OrderPayments</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when OLD.Status == 'paid' then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Cannot update on a paid order.')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when OLD.Status == 'cancelled' then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Cannot update on a cancelled order.')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.PaymentMethod = '' or NEW.PaymentMethod is NULL then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Payment Method cannot be blank.')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.Status != 'unpaid' and NEW.Status != 'paid' and NEW.Status != 'cancelled' then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Payment Status must be unpaid, paid or cancelled')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when OLD.OrderID != NEW.OrderID then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Order ID cannot be changed')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when NEW.Status == 'paid' and (select count(*) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID and OrderDetails.Quantity &gt; Products.Unit) &gt; 0 then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Not enough item in warehouse')</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-23" id="carousel_ee22">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.9.order_payment_before_update_trigger_2 &nbsp; &nbsp;</h2>
+          <ul>
+            <li style="font-weight: 700;">Usage: Automatically Calculate Total and Subtract Unit in Products when NEW.Status = 'paid'. Don't delete this triggers, you monster!!!</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_payment_before_update_trigger_2</p>
+          <p style="line-height: 1;">before update on OrderPayments</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">when NEW.Status == 'paid'</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; when NEW.Total &lt;&gt; OLD.Total and NEW.Total = OLD.Total then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Total cannot be changed')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; when (select count(*) from OrderDetails where OrderID = OLD.OrderID) = 0 then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Details cannot be empty before order is paid.')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; update OrderPayments</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status = 'paid',</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; PaymentMethod = NEW.PaymentMethod</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where OrderID = NEW.OrderID;</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; update Products</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-24" id="carousel_6747">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.10. order_payment_before_update_trigger_3 &nbsp; &nbsp;&nbsp;</h2>
+          <ul>
+            <li>Usage: Block Total changes on 'cancelled' an 'unpaid' Orders and set Total to 0 (seem useless)</li>
+          </ul>
+          <p>
+            <img src="images/image32.png" width="560" style="width: 857px;" class="fr-dib fr-fic">
+          </p>
+          <ul>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_payment_before_update_trigger_3</p>
+          <p style="line-height: 1;">before update on OrderPayments</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">when NEW.Status == 'cancelled' or NEW.Status == 'unpaid'</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; when NEW.Total &lt;&gt; OLD.Total and NEW.Total = OLD.Total then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Total cannot be changed')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; update OrderPayments</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set Total = 0,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PaymentMethod = NEW.PaymentMethod,</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Status = New.Status</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; where OrderID = NEW.OrderID;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-25" id="carousel_03ec">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.11. order_details_before_insert_trigger &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Block OrderDetails insertion on 'paid' and 'cancelled' Order</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_details_before_insert_trigger</p>
+          <p style="line-height: 1;">before insert on OrderDetails</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (Select Status from OrderPayments where OrderID = NEW.OrderID) = "paid" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot insert details on a paid order.")</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (Select Status from OrderPayments where OrderID = NEW.OrderID) = "cancelled" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot insert details on a cancelled order.")</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-26" id="carousel_7b05">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.12. order_details_before_update_trigger &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Block OrderDetails update on 'paid' and 'cancelled' Order</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_details_before_update_trigger</p>
+          <p style="line-height: 1;">before update on OrderDetails</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "paid" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update details on a paid order.")</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "cancelled" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update details on a cancelled order.")</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-27" id="carousel_898e">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.13. order_details_before_delete_trigger &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Block OrderDetails deletion on 'paid' and 'cancelled' Order</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_details_before_delete_trigger</p>
+          <p style="line-height: 1;">before delete on OrderDetails</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "paid" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot delete details on a paid order.")</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "cancelled" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update details on a cancelled order.")</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-28" id="carousel_ffa3">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.14. delete_relatives_after_delete_on_orders &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Delete all Orders's Relatives after delete on Orders</li>
+          </ul>
+          <p>
+            <img src="images/image33.png" width="560" display="block" align="center" style="width: 761px;" class="fr-dib fr-fic">
+          </p>
+          <ul>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER delete_relatives_after_delete_on_orders</p>
+          <p style="line-height: 1;">after delete on Orders</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; delete from OrderDates where OrderID = OLD.OrderID;</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; delete from OrderPayments where OrderID = OLD.OrderID;</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; delete from OrderDetails where OrderID = OLD.OrderID;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-29" id="carousel_841a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.15. order_dates_before_delete_trigger &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Prevent Dates deletion if the Orders still there.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_dates_before_delete_trigger</p>
+          <p style="line-height: 1;">before delete on OrderDates</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (select count(*) from Orders where OrderID = OLD.OrderID) &gt; 0 then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot delete the order date before delete that order.")</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-30" id="carousel_60e1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.16. order_payments_before_delete_trigger &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Prevent Payments deletion if the Orders still there.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_payments_before_delete_trigger</p>
+          <p style="line-height: 1;">before delete on OrderPayments</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (select count(*) from Orders where OrderID = OLD.OrderID) &gt; 0 then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot delete the order payment before delete that order.")</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-31" id="carousel_6b71">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.17. orders_before_update &nbsp; &nbsp; &nbsp;</h2>
+          <ul>
+            <li>Usage: Block update on 'paid' and 'cancelled' Orders.</li>
+            <li>SQL query:</li>
+          </ul>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER orders_before_update</p>
+          <p style="line-height: 1;">before update on Orders</p>
+          <p style="line-height: 1;">for each row</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (select Status from OrderPayments where OrderID = OLD.OrderID) = "paid" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update on a paid order.")</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; when (select Status from OrderPayments where OrderID = OLD.OrderID) = "cancelled" then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update on a cancelled order.")</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">end;</p>
+          <p style="line-height: 1;">Do you know that you can SQL-Injecting my database? Check this : <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Introduction.html#sec-4a4f">SQL Injections</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0a2c"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-align-left u-heading-font u-text u-text-1">A huge shout out to Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time guiding learners in&nbsp;Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice.<br>Also, thanks to people who spending time answering Stack Overflow questions, writing blogs, making videos for helping people in programming.
+        </p>
+        <p class="u-align-right u-text u-text-2">CONTACT ME:<br>
+          <span style="font-size: 1.25rem;">Contact Name: Duong Bich Hoa An<br>Phone: 0766526091<br>Email: anhoaduong2003@gmail.com<br>Facebook:&nbsp;https://www.facebook.com/hoaan.duong.3
+          </span>
+        </p>
+        <p class="u-align-left u-heading-font u-text u-text-3">HTML built by <a href="https://nicepage.com/c/about-us-html-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">NICEPACE&nbsp;</a>
+          <br>(I don't like to code HTML because it's inefficient and time-consuming, and I don't know&nbsp; how to code in HTML *sad*)<a href="https://nicepage.com/website-builder">&nbsp;<br>
+          </a>Backend built by <a href="https://nicepage.com/wordpress-website-builder" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">PYTHON</a>,&nbsp;<a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">FLASK</a> and <a href="https://nicepage.online" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">SQLITE</a>
+          <br>
+          <br>
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Template</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.cloud" target="_blank">
+        <span>Free Website Builder</span>
+      </a>. 
+    </section>
+  
+</body></html>

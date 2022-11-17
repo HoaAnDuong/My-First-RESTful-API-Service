@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="INTUITIVE">
+    <meta name="description" content="">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Introduction.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.21.12, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Introduction">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-border-2 u-border-grey-75 u-clearfix u-header u-header" id="sec-02e7"><div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">My First RESTful API Webservice</h2>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="MD">
+          <div class="menu-collapse">
+            <a class="u-button-style u-nav-link" href="#" style="padding: 5px 0px; font-size: calc(1em + 12px);">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5bb2"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-5bb2" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Sending-Requests.html">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Database.html">Database</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Sending-Requests.html">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Database.html">Database</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-image u-section-1" id="sec-22f7" data-image-width="1280" data-image-height="720">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-3 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-white u-text-1">INTRODUCTION</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-4ab5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2 style="text-align: left;">All of these Documentations was written based on My Experience on this projects. In the pages of documents I have written, there will be some mistakes. Hope you guys understand.</h2>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">This webservice is the result of my three weeks of self-studying and non-stop working (and twice Database Great Recreation).</span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">During working on this project, I've searched lots of informations on Google in every keywords I thought (such as "python restful api", "sqlite change columns type" (damn i hate this), "flask create table from sqlite", .etc), read a lot of documentations, blogs and (surely) <a href="https://nicepage.com"></a>
+                <a href="https://nicepage.com"></a>
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://nicepage.com">Stack Overflow</a> questions, dealed with a lot of problems came up.&nbsp;
+              </span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">In this project, I have to create a webservice which you can get, insert, update and delete data of a Store's Database via&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="Sending-Requests.html"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="Sending-Requests.html">Sending Requests</a>
+              </span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">.&nbsp;</span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">About the webservice, It's deployed on Python's Flask, a Python's module which can let you create a server easily without working a lot on HTML, CSS, JavaScript (wthich can be an advantage or a disadvantage). Flask deploys server automatically, provides many feature such as get requesting, exporting APIs, deploying website with prepared templates, which is a great advantage on deploying an RESTful API server. I just create functions returning json and let Flask do the rest:<img src="images/image1.png" width="570" align="center" style="width: 1102px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">About the database connection, I just use Python's 'sqlite3' module instead of 'sqlalchemy' because i don't want to approach SQLite Database in an so "OOP" way. Therefore, I always connect database and execute queries on Terminal (using Sqlite3 tool):</span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image2.png" width="570" align="center" style="width: 1100px;" class="fr-dib fr-fic">About the website, I used Nicepage to build. Nicepage is really good tool for building websites without spending hours getting trouble with HTML headers. However, when Use Flask to deploy them, I need to change something in these headers in order to make Flask run normally, but that's not the case.
+              </span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span class="u-text-body-color">
+              <img src="images/image5.png" width="570" align="center" style="width: 1095px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">There're many things needed to explain here, so i decided to divide them into many sections, which can be navigated in Table of Contents:</span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <br>
+              </span>
+            </span>
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-1">
+          <div class="u-container-layout u-valign-top u-container-layout-1">
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+              <h1 style="text-align: center;">
+                <span style="font-size: 2.25rem;">Table of Contents</span>
+              </h1>
+              <ol>
+                <li>
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="Introduction.html#sec-628d">Frameworks and Libraries</a>
+                  <ol>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" href="Introduction.html#sec-57f9">SQLite Database</a>
+                    </li>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5" href="Introduction.html#sec-1902">Python Flask</a>
+                    </li>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-6" href="Introduction.html#sec-dd51">Nicepage</a>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="Introduction.html#sec-70e2">How the webservice works</a>
+                  <ol>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="Introduction.html#sec-23ae">Sending Requests</a>
+                    </li>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-9" href="Introduction.html#sec-4a4f">SQL Injections</a>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-10" href="Introduction.html#sec-3c7b">Stage of Development</a>
+                  <ol>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-11" href="Introduction.html#sec-5e80">Deploying Database</a>
+                    </li>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-12" href="Introduction.html#sec-56c3">Building Webservice using Flask</a>
+                    </li>
+                    <li>
+                      <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-13" href="Introduction.html#sec-40d2">Make HTML Pages</a>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+              <p>
+                <span style="font-size: 1.5rem;">
+                  <a href="Introduction.html#sec-23ae"></a>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-628d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>1. Frameworks and Libraries</h1>
+          <p>Below are Frameworks and Tools I used on this project. Because I'm doing on a RESTful API webservice, I need a Datebase, a Web Frameworks and HTML editor. Depend on you favor, you can choose differents frameworks and libraries for this project.</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-57f9">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2 id="isPasted">
+            <span class="u-text-body-color">1. SQLite Database</span>
+          </h2>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">In this project, I used SQLite3 to build a Database. SQLite3 is a tool help programmers implement a small, fast, self-contained, high-reliability, full featured SQL Database. Despite its benefit, SQLite has many problems in data structure, such as not have a proper type for date storage, cannot change column type normally (Due to that, I have Recreate Entire Database twice), .etc. However, SQLite is still good for small-scale Database.&nbsp;</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">To connect and excute query on Database, I used&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener noreferrer"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://www.sqlite.org/download.html" target="_blank">SQLite command-line shell</a>
+              </span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">&nbsp;program</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image6.png" width="570" align="center" style="width: 925px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p>Python have a SQLite-supported module called 'sqlite3'. In 'sqlite3', you can spawn cursors for executing SQLIte statements.</p>
+          <p>
+            <img src="images/image40.png" width="570" align="center" style="width: 955px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">The Database have a total of 10 tables containing all data for Store Management:</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Customers: contains Customers's information</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Employees: contains Employees's information&nbsp;</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Shippers: contains Shippers's information&nbsp;</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Suppliers: contains Suppliers's information&nbsp;</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Categories: contains Categories's information&nbsp;</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Products: contains Products's information&nbsp;</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">Orders: contains Orders's information&nbsp;</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">OrderDates: contains Orders's date</span>
+              </span>
+            </li>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">OrderPayments: contains Orders payment's information</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here's a glance look on Database's Diagram (created by DBVisualiser):</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <br>
+              </span>
+            </span>
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+        <img class="u-image u-image-contain u-image-default u-image-1" src="images/Diagram1.jpg" alt="" data-image-width="627" data-image-height="869">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+          <p>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">Along with the database, I added a lot of triggers to manage the data:</span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image4.png" width="570" align="center" style="width: 957px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <br>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">For more details on Database, read:&nbsp;</span>
+            <a href="Database.html"></a>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">
+              <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="Database.html">Database</a>
+            </span>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">
+              <a href="Database.html"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="Database.html"></a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="sec-1902">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>
+            <span class="u-text-body-color">1.2. Python Flask</span>
+          </h2>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Python is the popular high-level programming languagues.&nbsp;</span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured, object-oriented and functional programming. Python is usually used in Mathematics, Graphs, Data Science, Artifical Intelligence, etc., but you can use Python to make web applications.</span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <br>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Flask is a Python's web framework, provides programmers a simple and useful tool to deploy a server, get requests and responds, create APIs using Python's dicts, create wbesites with exist templates, .etc.</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Flask is an integral part in this project. Without it, This webservice cannot be deployed. From this page, to create APIs, handling HTTP Methods, .etc, Flask can do all the things related to Webs.</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">In main.py, What I just do is return things in @app.route() decorators and let Flask do the rest.</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Deploying a page using exist HTML:</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image7.png" width="570" align="center" style="width: 652px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Handling HTTP Methods:</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <br>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image8.png" width="570" align="center" style="width: 1001px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="sec-dd51">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>
+            <span class="u-text-body-color">1.3. Nicepage</span>
+          </h2>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">"While watching a video on youtube, I saw a meme video about an parrot-like kids learning web programming. His friend showed him how to program in HTML, CSS, &nbsp;JS, ReactJS, etc. Finally, he closed with a sentence: "you don't need to code all the times, you just need to drag and drop things" (emotional damage)</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <a href="https://nicepage.com/"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://nicepage.com/">Nicepage</a> is a good tool letting you create a website without coding a lot with HTML and CSS (which is painful to me).
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Nicepage provide a simple tool which can let even a non-IT make a simple website easily just by drag-and-drop.&nbsp;</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="images/image9.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Nicepage also have a lot of nice templates to use:</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="images/image10.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Beside create a nice website, Nicepage provide many features such as Designer App Pack, Web Hosting, Export, etc. (which is cost money).</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image11.png" width="570" align="center" style="width: 850px;" class="fr-dib fr-fic">However, Nicepage is not only the drag-and-drop Web tool available on the Internet. There're a lot more tool you can find out. Anyway, if you want to design a website, you should use drag-and-drop tool to save time because they just generate HTML, CSS files like what a programmer will do on HTML and CSS file.
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="images/image12.png" width="570" align="center" style="width: 724px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span style="font-weight: 700;">
+              <span class="u-text-body-color" style="font-size: 1.25rem;">NOTICE: You must store .html files on the folder named "templates" and the rest file on the folder named "static". You also have to change all the directory in all the references headers to "static/&lt;file_path&gt;" to make Flask be accessible to them.</span>
+            </span>
+            <span style="font-size: 1.5rem;">
+              <span class="u-text-body-color">
+                <img src="images/image15.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="images/image14.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="images/image13.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="sec-70e2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>2. How the webservice works</h1>
+          <p>Below sections are explanation of how the webservice works. You can refer it to your project.</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="sec-23ae">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>
+            <span class="u-text-body-color">2.1. Sending Requests</span>
+          </h2>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Before going to Sending Requests, we must find out what a HTTP is.</span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">"The Hypertext Transfer Protocol (HTTP) is designed to enable communications between clients and servers.</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">HTTP works as&nbsp;</span>
+              <span style="text-decoration: underline;">
+                <span class="u-text-body-color">a request-response protocol</span>
+              </span>
+              <span class="u-text-body-color">&nbsp;between a client and server.</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">Example: A client (browser)&nbsp;</span>
+              <span style="text-decoration: underline;">
+                <span class="u-text-body-color">sends an HTTP request</span>
+              </span>
+              <span class="u-text-body-color">&nbsp;to the server; then the server&nbsp;</span>
+              <span style="text-decoration: underline;">
+                <span class="u-text-body-color">returns a response</span>
+              </span>
+              <span class="u-text-body-color">&nbsp;to the client. The response contains status information about the request and may also contain the requested content."</span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span class="u-text-body-color">
+              <a href="https://nicepage.com"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://nicepage.com"></a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://nicepage.com"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://nicepage.com"></a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://nicepage.com"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://nicepage.com"></a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://www.w3schools.com/tags/ref_httpmethods.asp"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://www.w3schools.com/tags/ref_httpmethods.asp"></a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://www.w3schools.com/tags/ref_httpmethods.asp" target="_blank" rel="noopener noreferrer"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://www.w3schools.com/tags/ref_httpmethods.asp" rel="noopener noreferrer" target="_blank"></a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://www.w3schools.com/tags/ref_httpmethods.asp"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://www.w3schools.com/tags/ref_httpmethods.asp"></a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://www.w3schools.com/tags/ref_httpmethods.asp"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">"HTTP Request Methods</a>
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="https://www.w3schools.com/tags/ref_httpmethods.asp"></a>
+            </span>
+            <span style="font-size: 1.25rem; font-style: italic;">
+              <span class="u-text-body-color">
+                <a href="https://www.w3schools.com/tags/ref_httpmethods.asp">"-W3Schools</a>
+              </span>
+            </span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">There are 9 HTTP Methods(Requests): GET, POST, PUT, HEAD, DELETE, PATCH, OPTION, CONNECT, TRANCE. Despite its variety, the action based on these Methods are actually decided by Back-end Developers (for example: The server can update a row in a database instead of delete it when received a DELETE Request)&nbsp;</span>
+            </span>
+            <span style="font-style: italic;">
+              <span class="u-text-body-color">
+                <br>
+              </span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">In this website, you can get, change and delete data of a Store's Database via Sending Requests. There are 4 Request Methods corresponding to 4 Actions on Store's Database:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET (SELECT): Get datas from a Table(or a Row)</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST (INSERT): Insert data into a Table</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT(UPDATE): Update data on a Row</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">DELETE(DELETE): Delete data on a Row</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">For more details on Sending Requests, read:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="Sending-Requests.html"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Sending-Requests.html">Sending Requests</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">If you don't know how to Sending Requests, you can use Python's Module "requests" to do that:</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="images/image3.png" width="570" align="center" style="width: 1082px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-5b8d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.2 Webservice's Diagram</h2>
+          <p>Here is the Webservice's Diagram. As you can see, Clients can only get data responded from the Server. All data from SQLite Database is hidden from Clients.&nbsp;</p>
+          <p>
+            <br>
+          </p>
+          <p>
+            <img src="images/image41.png" width="570" align="center" style="width: 1083px;" class="fr-dib fr-fic">
+          </p>
+          <p>However, Hackers can still get data in Database via SQL injections.</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="sec-4a4f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>2.3 SQL injections</h1>
+          <p>In computing, SQL injections is a code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution.&nbsp;</p>
+          <p>I am not actually proficient in SQL injection as well as Hacking, but after read this blog: <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://www.w3schools.com/sql/sql_injection.asp">https://www.w3schools.com/sql/sql_injection.asp</a> , I found a way to do that on my webservice:
+          </p>
+          <p>
+            <img src="images/image45.png" width="570" style="width: 1080px;" class="fr-dib fr-fic">
+          </p>
+          <p>Instead of typing a normal Employee ID, i typed 'or''=', And what we received is data of first row in table Employees.</p>
+          <p>Why? Look at my get function:</p>
+          <p>
+            <img src="images/image46.png" width="570" style="width: 1052px;" class="fr-dib fr-fic">
+          </p>
+          <p>This function will excute a statement to get the data of table having id = id:</p>
+          <p>select (all column in column_list) from (table_name) where (table_name)ID = '{id}';</p>
+          <p>If id = 'EMP0001' and table_name = 'Employees', it just return Employee having EmployeeID = 'EMP0001':</p>
+          <p>select (all column in column_list) from Employees where EmployeeID = 'EMP0001';</p>
+          <p>What if id = 'or''=':</p>
+          <p>select (all column in column_list) from Employees where EmployeeID = ''or''='';</p>
+          <p>Wait? Where EmployeeID = ''or''=''? Do not think that condition is meaningless. While condition (Employee = '') return nothing, (or''='') will return all the rows because (''='') is equal true.&nbsp;</p>
+          <p>
+            <img src="images/image50.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+          </p>
+          <p>Here what's that statement return (Entire Table):</p>
+          <p>
+            <img src="images/image49.png" width="570" align="center" style="width: 1080px;" class="fr-dib fr-fic">
+          </p>
+          <p>Fortunately, this page just return the first row:</p>
+          <p>
+            <img src="images/image45.png" width="570" style="width: 991px;" class="fr-dib fr-fic">
+          </p>
+          <p>because in the returning data, I just take the first element to return:</p>
+          <p>
+            <img src="images/image51.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">However, this bug is still critical:
+          </p>
+          <p>For example, What does the delete function do when id = 'or''='' (aka when someone send DELETE Request on id &nbsp;'or''='' ), huh?<img src="images/image52.png" width="570" align="center" style="width: 1039px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+          <p>- Certainly, the cursor will excute delete from &lt;table_name&gt; where &lt;id&gt; = ''or''=''. Wait! Nooooo!!!!!</p>
+          <p>
+            <img src="images/image58.png" width="570" align="center" style="width: 1019px;" class="fr-dib fr-fic">
+          </p>
+          <p>After detecting that freaking bug, i fixed it by a simple methods below:</p>
+          <p>1. Generate forbidden letters:</p>
+          <p>
+            <img src="images/image53.png" width="570" align="center" style="width: 1050px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <img src="images/image54.png" width="570" align="center" style="width: 1054px;" class="fr-dib fr-fic">
+            <br>
+          </p>
+          <p>2. Make function that check existance of these id:</p>
+          <p>
+            <img src="images/image55.png" width="570" align="center" style="width: 1062px;" class="fr-dib fr-fic">
+          </p>
+          <p>3. Block excute statement with these id:</p>
+          <p>
+            <img src="images/image56.png" width="570" align="center" style="width: 1047px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <img src="images/image57.png" width="570" align="center" style="width: 1057px;" class="fr-dib fr-fic">
+          </p>
+          <p>Now, what you got when use id 'or''='' is:</p>
+          <p>
+            <img src="images/image59.png" width="570" align="center" style="width: 1039px;" class="fr-dib fr-fic">
+          </p>
+          <p>And:</p>
+          <p>
+            <img src="images/image60.png" width="570" align="center" style="width: 1036px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="sec-3c7b">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <div class="fr-wrapper" dir="auto">
+            <div class="fr-element fr-view" dir="auto" spellcheck="true">
+              <h1>3. Stages of Development</h1>
+              <p>This project has gone through 3 Stages of Developments: Deploying SQLite Database, Building Webservice Using Flask, Making HTLM Pages. During developing this webservice, I dealed with lots of problems, learned a lots of lessons, improved my programming skills.&nbsp;</p>
+              <p>Again, I just want to thank Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time guiding learners in Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice, as well as people who spend time answering questions in Stack Overflow and writing blogs for helping people in programming,</p>
+            </div>
+          </div>
+          <div class="fr-second-toolbar">
+            <br>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="sec-5e80">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>3.1 Deploying SQLite Database(~1 weeks)</h2>
+          <p>After read the given task, I decided to deploy an SQLite Datbase using <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://www.sqlite.org/download.html">SQLite command-line</a> shell program. It took me ~2 days to Deploy a Database like below image.
+          </p>
+          <p>
+            <img src="images/image37.png" width="570" align="center" style="width: 937px;" class="fr-dib fr-fic">
+          </p>
+          <p>But a problem came up: how to store Order Date and Total? Did I just need to add more columns like Date, PaymentMethod, Total, Status in Orders? But after doing that, The Orders table just liked a mess. So, I decided to store Date and Payment in two seperated Table.&nbsp;</p>
+          <p>
+            <img src="images/image38.png" width="570" align="center" style="width: 570px;" class="fr-dib fr-fic">
+          </p>
+          <p>I thought everything would be fine, but more and more problems came up: How to calculate the Order Total? How to prevent illegal changes on Orders and its Relatives? After a lesson of Database in school, my teacher recommended using triggers to enforce rules on the Database. I tried to search infomations about SQLite Trigger. At first, I tried writing some small triggers like auto add date and payment, block update on OrderDate, etc. After many day, I wrote a lot of triggers, enforced a lot of rules on the Database, make things worked automatically.</p>
+          <p>
+            <img src="images/image4.png" width="570" style="width: 865px;" class="fr-dib fr-fic">
+          </p>
+          <p>However, another big problem came up: I forgot to add primary key to some table and make them unique, so I need to backup and recreate entire Database following these step:</p>
+          <p>0. pragma foreign_keys = off;</p>
+          <p>1. Begin transaction;</p>
+          <p>2. Backup all the SQL query belong to tables and triggers (select sql from sqlite_master where type = 'table')(select sql from sqlite_master where type = 'trigger' )</p>
+          <p>3. Drop all triggers, rename table to table_olds</p>
+          <p>4. Fix the backup SQL query&nbsp;</p>
+          <p>5. Recreate all the tables and triggers using backup SQL query</p>
+          <p>6. Insert into table select * from table_olds (Copy data from table_olds)</p>
+          <p>7. Drop all table_olds</p>
+          <p>8. Commit;</p>
+          <p>9. pragma foreign_keys = on;</p>
+          <p>Here where i store backup query(draft/draft.txt):</p>
+          <p>
+            <br>
+          </p>
+          <p>
+            <img src="images/image39.png" width="570" align="center" style="width: 1057px;" class="fr-dib fr-fic">
+          </p>
+          <p>In these next stages,when I got trouble in database, I just follow these step.</p>
+          <p>If you want to learn about my database: read <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="Database.html">Database</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="sec-56c3">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>3.2 Building Webservice using Flask(~1 week)</h2>
+          <p>Before going to this stages, I didn't have ideas about RESTful API. Anyway, when I searched it on Google, I knew what todo instantly: "just let Flask do the REST."</p>
+          <p>However, Keeping rewriting same things all the time was just like a punishment (and it's take a lot of space), so i decided to write function excuting statements and returning dicts for Flask:</p>
+          <p>
+            <img src="images/image42.png" width="570" align="center" style="width: 929px;" class="fr-dib fr-fic">
+          </p>
+          <p>and keep reusing them:</p>
+          <p>
+            <img src="images/image43.png" width="570" align="center" style="width: 940px;" class="fr-dib fr-fic">
+          </p>
+          <p>Anyway, I can't reuse it on Products and Orders. The only thing i can do is just write functions for these 2 table.</p>
+          <p>
+            <img src="images/image44.png" width="570" align="center" style="width: 918px;" class="fr-dib fr-fic">
+          </p>
+          <p>If you want to get more detail about Sending Requests, read main.py and read: <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Sending-Requests.html"></a>
+            <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="Sending-Requests.html">Sending Requests</a>.
+          </p>
+          <p>If you reached this stages, you have done the project theorically (end). Anyway, I don't want my webservice look so boring. So, I decided to create these lively pages(full of words) for you.</p>
+          <p>p/s: I realised my webservice can be SQL Injected, please read: <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="Introduction.html#sec-16cf">SQL Injections</a> for more detail.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="sec-40d2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <div class="fr-wrapper" dir="auto">
+            <div class="fr-element fr-view" dir="auto" spellcheck="true">
+              <h2>3.3 Making HTML Pages</h2>
+              <p>As I said before, I decided to use drag-and-drop tools instead of spending time working on these headers. So, i searched on Google(again) and found Nicepage in the first result (because of Google *good job, boy*). After this, what i need to do is just typing, draging and droping things. Problem come up when Flask couldn't use that directly.&nbsp;</p>
+              <p>What you need to do is storing .html files on the folder named "templates" and the rest file on the folder named "static". You also have to change all the directory in all the references headers to "static/&lt;file_path&gt;" to make Flask be accessible to them.&nbsp;</p>
+              <p>
+                <img src="images/image14.png" width="570" style="width: 984px;" class="fr-dib fr-fic">
+              </p>
+              <p>
+                <img src="images/image13.png" width="570" style="width: 986px;" class="fr-dib fr-fic">
+              </p>
+              <p>When I though everything would be done, a problem came up again: displaying SQLite Tables. However, solutions for this was really simple: use <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://jinja.palletsprojects.com/en/3.1.x/templates/">Jinja</a>
+              </p>
+              <p>{{row[i]}}: print row[i]</p>
+              <p>{% for row in table %}</p>
+              <p>// create headers</p>
+              <p>{% endfor %}: create headers for row in table</p>
+              <p>
+                <img src="images/image36.png" width="570" style="width: 1004px;" class="fr-dib fr-fic">
+              </p>
+              <p>
+                <img src="images/image61.png" width="570" align="center" style="width: 1001px;" class="fr-dib fr-fic">
+                <br>
+              </p>
+            </div>
+          </div>
+          <div class="fr-second-toolbar">
+            <br>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-border-2 u-border-grey-75 u-clearfix u-image u-shading u-section-15" id="sec-4356" data-image-width="1280" data-image-height="720">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-3 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-white u-text-1">Have a nice day.</h2>
+          </div>
+        </div>
+        <p class="u-text u-text-body-alt-color u-text-default u-text-2">If you hang out in a Mount Hai Van coffee shop, feel free to contact me at 0766526091. I'll join with you.</p>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0a2c"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-align-left u-heading-font u-text u-text-1">A huge shout out to Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time guiding learners in&nbsp;Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice.<br>Also, thanks to people who spending time answering Stack Overflow questions, writing blogs, making videos for helping people in programming.
+        </p>
+        <p class="u-align-right u-text u-text-2">CONTACT ME:<br>
+          <span style="font-size: 1.25rem;">Contact Name: Duong Bich Hoa An<br>Phone: 0766526091<br>Email: anhoaduong2003@gmail.com<br>Facebook:&nbsp;https://www.facebook.com/hoaan.duong.3
+          </span>
+        </p>
+        <p class="u-align-left u-heading-font u-text u-text-3">HTML built by <a href="https://nicepage.com/c/about-us-html-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">NICEPACE&nbsp;</a>
+          <br>(I don't like to code HTML because it's inefficient and time-consuming, and I don't know&nbsp; how to code in HTML *sad*)<a href="https://nicepage.com/website-builder">&nbsp;<br>
+          </a>Backend built by <a href="https://nicepage.com/wordpress-website-builder" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">PYTHON</a>,&nbsp;<a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">FLASK</a> and <a href="https://nicepage.online" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">SQLITE</a>
+          <br>
+          <br>
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>

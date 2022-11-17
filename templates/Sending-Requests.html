@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="INTUITIVE">
+    <meta name="description" content="">
+    <title>Sending Requests</title>
+    <link rel="stylesheet" href="static/nicepage.css" media="screen">
+<link rel="stylesheet" href="static/Sending-Requests.css" media="screen">
+    <script class="u-script" type="text/javascript" src="static/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="static/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.21.12, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Sending Requests">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-border-2 u-border-grey-75 u-clearfix u-header u-header" id="sec-02e7"><div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">My First RESTful API Webservice</h2>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="MD">
+          <div class="menu-collapse">
+            <a class="u-button-style u-nav-link" href="#" style="padding: 5px 0px; font-size: calc(1em + 12px);">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5bb2"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-5bb2" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="introduction">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="sending-requests">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="database">Database</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="introduction">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="sending-requests">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="database">Database</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-image u-section-1" id="sec-22f7" data-image-width="1280" data-image-height="720">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-3 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-white u-text-1">SENDING REQUESTS</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-4ab5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>Did<span class="u-text-body-color">&nbsp;you write an guide just for Sending Requests?</span>
+          </h1>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Yes. Because I don't want to let you just explore it yourself.</span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">In this website, you can get, change and delete data of a Store's Database via Sending Requests. There are 4 Request Methods corresponding to 4 Actions on Store's Database:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET (SELECT): Get datas from a Table(or a Row)</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST (INSERT): Insert data into a Table</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT(UPDATE): Update data on a Row</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">DELETE(DELETE): Delete data on a Row</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">If you don't know how to Send Requests, you can use Python's Module called 'requests' to do that.</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image3.png" width="570" align="center" style="width: 910px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here the syntax of these HTTP Methods:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET: requests.get(&lt;link&gt;)</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST: requests.post(&lt;link&gt;,json=&lt;dict&gt;)</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT: request.put(&lt;link&gt;,json=&lt;dict&gt;)</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">DELETE: request.delete(&lt;link&gt;)</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">To get the HTTP code: requests.&lt;HTTP Methods&gt;</span>
+            </li>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">To get the returning json: requests.&lt;HTTP Methods&gt;.json()</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Is that all I need to Sending Requests? No no no! You must know how my webservice behave to these Requests, because what the server will do on these Requests are decided by the Developers (which is me), not on the type of HTTP Methods. In the guide below, I will explain in Python code as well as explaination. What are you waiting for? Let's get started!</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">If you want to know more about Table, read:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="database"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="database">
+                <span class="u-text-body-color">Database</span>
+              </a>
+            </span>
+          </p>
+        </div>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-1">
+          <div class="u-container-layout u-valign-top u-container-layout-1">
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+              <h1 style="text-align: center;">Table of Contents</h1>
+              <p>
+                <span style="color: rgba(0, 0, 0, 0);">
+                  <span style="font-size: 1.5rem;">
+                    <a href="sending-requests#sec-1780"></a>
+                  </span>
+                  <span style="font-size: 1.5rem;">
+                    <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="sending-requests#sec-1780">1. Customers</a>
+                    <a href="sending-requests#sec-1780"></a>
+                  </span>
+                </span>
+              </p>
+              <p>
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3" href="sending-requests#sec-d5ff">
+                  <span style="font-size: 1.5rem;">2. Employees</span>
+                </a>
+              </p>
+              <p>
+                <a href="sending-requests#sec-9415"></a>
+                <span style="font-size: 1.5rem;">
+                  <a href="sending-requests#sec-9415"></a>
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4" href="sending-requests#sec-9415">3. Shippers</a>
+                </span>
+              </p>
+              <p>
+                <a href="sending-requests#sec-55f9"></a>
+                <span style="font-size: 1.5rem;">
+                  <a href="sending-requests#sec-55f9"></a>
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-5" href="sending-requests#sec-55f9">4. Suppliers</a>
+                </span>
+              </p>
+              <p>
+                <a href="sending-requests#sec-6db1"></a>
+                <span style="font-size: 1.5rem;">
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-6" href="sending-requests#sec-6db1">5. Categories</a>
+                </span>
+              </p>
+              <p>
+                <a href="sending-requests#sec-4f0c"></a>
+                <span style="font-size: 1.5rem;">
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-7" href="sending-requests#sec-4f0c">6. Products</a>
+                </span>
+              </p>
+              <p>
+                <a href="sending-requests#sec-721c"></a>
+                <span style="font-size: 1.5rem;">
+                  <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-8" href="sending-requests#sec-721c">7. Orders</a>
+                </span>
+                <span style="font-size: 1.5rem;">&nbsp;</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-1780">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">1. Customers</span>
+          </h1>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Customers API:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="http://127.0.0.1:5000/customers"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="http://127.0.0.1:5000/customers">http://127.0.0.1:5000/customers</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image16.png" width="570" align="center" style="width: 1083px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Customers API from CustomerID: <a href="http://127.0.0.1:5000/customers/&lt;order_id&gt;">http://127.0.0.1:5000/customers/&lt;id&gt;</a> (will return HTTP code 404 if not found)
+              </span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image17.png" width="570" align="center" style="width: 1084px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Customers:<br>
+              </span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">GET Customers (get Customers API):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/customers")</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">GET Customers by CustomerID (get Customers API by CustomerID):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/customers/&lt;id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">POST Customers (insert a new Customers):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/customers",json={</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CustomerID": "&lt;CustomerID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CustomerName": "&lt;CustomerName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ContactName": "&lt;ContactName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Address": "&lt;Address&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"City": "&lt;City&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"PostalCode": "&lt;PostalCode&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Country": "&lt;Country&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT Customers by CustomerID (update on a Customers row by CustomerID):</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">r</span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">equests.put("http://127.0.0.1:5000/customers/&lt;id&gt;",json= {</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CustomerName": "&lt;CustomerName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ContactName": "&lt;Contactname&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Address": "&lt;Adress&gt;</span>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"City": "&lt;City&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"PostalCode": "&lt;PostalCode&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Country": "&lt;Country&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">DELETE Customers by CustomerID (set Status of a Customers row to 'unavailable')</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/customers/&lt;id&gt;")</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-d5ff">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">2. Employees</span>
+          </h1>
+          <p id="isPasted">
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Employees API:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="http://127.0.0.1:5000/employees"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="http://127.0.0.1:5000/employees">http://127.0.0.1:5000/employees</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image18.png" width="570" align="center" style="width: 991px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Employees API from EmployeesID: http://127.0.0.1:5000/employees/&lt;id&gt; (will return HTTP code 404 if not found)</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image19.png" width="570" align="center" style="width: 991px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Employees:</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">GET Employees &nbsp;(get Employees API):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/employees")</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">GET Employees by EmployeeID (get Employees API by EmployeeID):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/employees/&lt;id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">POST Employees &nbsp;(insert a new Employees):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/employees",json={</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"EmployeeID": "&lt;EmployeeID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"LastName": "&lt;LastName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"FirstName": "&lt;FirstName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"BirthDate": "&lt;BirthDate&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Notes": "&lt;Notes&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">PUT Employees by EmployeeID (update on a Employees row by EmployeeID):</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.put("http://127.0.0.1:5000/employees/"&lt;id&gt;",json={</span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"LastName": "&lt;LastName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"FirstName": "&lt;FirstName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"BirthDate": "&lt;BirthDate&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Notes": "&lt;Notes&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">DELETE Employees by EmployeeID (set Status of a Employees row to 'unavailable')</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/employees/"&lt;id&gt;")</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="sec-9415">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">3. Shippers</span>
+          </h1>
+          <p id="isPasted">
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Shippers API:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a href="http://127.0.0.1:5000/employees"></a>
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="http://127.0.0.1:5000/shippers">http://127.0.0.1:5000/shippers</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image20.png" width="560" align="center" style="width: 1024px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Shippers API from ShippersID: http://127.0.0.1:5000/shippers/&lt;id&gt; (will return HTTP code 404 if not found)</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image21.png" width="560" align="center" style="width: 1039px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Shippers:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Shippers &nbsp;(get Shippers API):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/shippers")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Shippers by ShippersID (get Shippers API by ShipperID):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/shippers/&lt;id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST Shippers &nbsp;(insert a new Shippers):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/shippers",json={</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ShipperID": "&lt;ShipperID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ShipperName": "&lt;ShipperName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Phone": "&lt;Phone&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT Shippers by ShipperID (update on a Employees row by ShipperID):</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.put("http://127.0.0.1:5000/shippers/"&lt;id&gt;",json={</span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ShipperName": "&lt;ShipperName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Phone": "&lt;Phone&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">DELETE Shippers by ShipperID (set Status of a Shippers row to 'unavailable')</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/shipppers/"&lt;id&gt;")</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="sec-55f9">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">4. Suppliers</span>
+          </h1>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Suppliers API:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color">
+              <a href="http://127.0.0.1:5000/customers"></a>
+            </span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="http://127.0.0.1:5000/supplierrs">http://127.0.0.1:5000/suppliers</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image22.png" width="560" align="center" style="width: 1011px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Supplierss API from SupplierID: <a href="http://127.0.0.1:5000/customers/&lt;order_id&gt;">http://127.0.0.1:5000/suppliers/&lt;id&gt;</a> (will return HTTP code 404 if not found)
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image23.png" width="560" align="center" style="width: 1008px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Suppliers:<br>
+              </span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">GET Suppliers (get Suppliers API):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/suppliers")</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">GET Suppliers by SupplierID (get Suppliers API by SupplierID):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/suppliers/&lt;id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">POST Suppliers &nbsp;(insert a new Suppliers ):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/suppliers",json={</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"SupplierID ": "&lt;SupplierID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"SupplierName": "&lt;SupplierName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ContactName": "&lt;ContactName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Address": "&lt;Address&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"City": "&lt;City&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"PostalCode": "&lt;PostalCode&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Country": "&lt;Country&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT Suppliers by SupplierID &nbsp;(update on a Suppliers row by SupplierID):</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">r</span>
+            </span>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">equests.put("http://127.0.0.1:5000/suppliers/&lt;id&gt;",json={</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"SupplierName": "&lt;SupplierName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ContactName": "&lt;Contactname&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Address": "&lt;Adress&gt;</span>
+            </span>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"City": "&lt;City&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"PostalCode": "&lt;PostalCode&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Country": "&lt;Country&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">DELETE Suppliers by SupplierID (set Status of a Suppliers row to 'unavailable')</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/suppliers/&lt;id&gt;")</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="sec-6db1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">5. Categories</span>
+          </h1>
+          <p id="isPasted">
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Categories API:&nbsp;</span>
+            </span>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <a href="http://127.0.0.1:5000/employees"></a>
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="http://127.0.0.1:5000/catagories">http://127.0.0.1:5000/catagories</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image24.png" width="560" align="center" style="width: 1015px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Categories API from CategoriesID: http://127.0.0.1:5000/categories/&lt;id&gt; (will return HTTP code 404 if not found)</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image25.png" width="560" align="center" style="width: 1014px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Categories:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Categories &nbsp;(get Categories API):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/categories")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Categories by CategoryID (get Categories API by CategoryID):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/categories/&lt;id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST Categories &nbsp;(insert a new Categories):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/categories",json={</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CategoryID": "&lt;CategoryID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CategoryName": "&lt;CategoryName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Description": "&lt;Description&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT Categories by CategoryID (update on a Categories row by CategoryID):</span>
+            </li>
+          </ul>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.put("http://127.0.0.1:5000/categories/"&lt;id&gt;",json={</span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CategoryName": "&lt;CategoryName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Description": "&lt;Description&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color"></span>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span class="u-text-body-color"></span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">DELETE Categories by CategoryID (delete a Categories row by CategoryID)</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/categories /"&lt;id&gt;")</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="sec-4f0c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">6.Products</span>
+          </h1>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Products API: <a href="http://127.0.0.1:5000/employees"></a>
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="%E2%80%8Bhttp://127.0.0.1:5000/products">http://127.0.0.1:5000/products</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image26.png" width="560" align="center" style="width: 1006px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Products API from ProductID: http://127.0.0.1:5000/products/&lt;id&gt; (will return HTTP code 404 if not found)</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image27.png" width="560" align="center" style="width: 1005px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Products:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Products: &nbsp; (get Products API):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/"products")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Products by ProductID (get Products API by ProductID):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/products/&lt;id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST Products (insert a new Products):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/products",json={</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ProductID": "&lt;ProductID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ProductName": "&lt;ProductName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"SupplierID": "&lt;SupplierID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CategoryID": "&lt;CategoryID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Unit": &lt;Unit&gt;,</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Price": &lt;Price&gt;</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT Products by ProductsID (update on a Products row by ProductID):</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.put("http://127.0.0.1:5000/products/"&lt;id&gt;",json={</span>
+            </span>
+          </p>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ProductName": "&lt;ProductName&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"SupplierID": "&lt;SupplierID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CategoryID": "&lt;CategoryID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Unit": &lt;Unit&gt;,</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Price": &lt;Price&gt;</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">DELETE products by ProductID (delete a Products row by ProductID)</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/products/"&lt;id&gt;")</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-721c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span class="u-text-body-color">7. Orders</span>
+          </h1>
+          <p id="isPasted">
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Orders API: <a href="http://127.0.0.1:5000/employees"></a>
+                <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="http://127.0.0.1:5000/orders">http://127.0.0.1:5000/orders</a>
+              </span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image28.png" width="560" align="center" style="width: 1004px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Orders API from OrderID: http://127.0.0.1:5000/orders/&lt;order_id&gt; (will return HTTP code 404 if not found)</span>
+            </span>
+          </p>
+          <p>
+            <span class="u-text-body-color">
+              <img src="static/images/image29.png" width="560" align="center" style="width: 998px;" class="fr-dib fr-fic">
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">OrderDetails API from OrderID/ProductID: http://127.0.0.1:5000/orders/&lt;order_id&gt;/&lt;product_id&gt; (will return HTTP code 404 if not found)&nbsp;</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">
+                <img src="static/images/image30.png" width="560" align="center" style="width: 1030px;" class="fr-dib fr-fic">
+              </span>
+            </span>
+            <span class="u-text-body-color">
+              <br>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">Here are HTTP Methods for Orders:</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Orders : (get Orders API):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/orders")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">GET Orders by OrderID (get Orders API by OrderID):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/orders/&lt;order_id&gt;")</span>
+            </span>
+          </p>
+          <ul id="isPasted">
+            <li style="box-sizing: border-box; -webkit-user-drag: element !important; user-select: text !important; outline: 0px !important; cursor: text !important; pointer-events: auto !important; font-size: 1.25rem;">
+              <span class="u-text-body-color">GET&nbsp;</span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">OrderDetails by OrderID/ProductID (get OrderDetails API by OrderID/Products):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.get("http://127.0.0.1:5000/orders/&lt;order_id&gt;/&lt;product_id&gt; ")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">POST Orders (insert a new Orders):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/orders ,json={</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"OrderID": "&lt;OrderID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CustomerID": "&lt;CustomerID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"EmployeeID": "&lt;EmployeeID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ShipperID": "&lt;ShipperID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"PaymentMethod": "&lt;PaymentMethod&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul id="isPasted">
+            <li style="box-sizing: border-box; -webkit-user-drag: element !important; user-select: text !important; outline: 0px !important; cursor: text !important; pointer-events: auto !important; font-size: 1.25rem;">
+              <span class="u-text-body-color">POS</span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">T OrderDetails by OrderID (insert a new OrderDetails by OrderID):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/orders/&lt;order_id&gt; ,json={</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ProductID": "&lt;ProductID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Quantity": Quantity</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul>
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">PUT Orders by OrderID (update on an Orders row by OrderID):</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem; font-weight: 700;">
+              <span class="u-text-body-color">Notice: Status can only be changed to "unpaid"(Default), "paid"(to Automatically Calculate Total), "cancelled"(Cancel Order). Also, You cannot update on Orders whose Status is "paid" or "cancelled"</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.put("http://127.0.0.1:5000/products/"&lt;id&gt;",json={</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"CustomerID": "&lt;CustomerID&gt;",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"EmployeeID": "&lt;EmployeeID&gt; ",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ShipperID": "&lt;ShipperID&gt; ",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"PaymentMethod": "&lt;PaymentMethod&gt; ",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Status": "&lt;Status&gt;"</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul id="isPasted">
+            <li style="box-sizing: border-box; -webkit-user-drag: element !important; user-select: text !important; outline: 0px !important; cursor: text !important; pointer-events: auto !important; font-size: 1.25rem;">
+              <span class="u-text-body-color">POS</span>
+              <span style="font-size: 1.25rem;">
+                <span class="u-text-body-color">T OrderDetails by OrderID (insert a new OrderDetails):&nbsp;</span>
+              </span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.post("http://127.0.0.1:5000/orders/&lt;order_id&gt;/&lt;product_id&gt; ,json={</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"ProductID": "Product",</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">"Quantity": Quantity</span>
+            </span>
+          </p>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">})</span>
+            </span>
+          </p>
+          <ul id="isPasted">
+            <li style="font-size: 1.25rem;">
+              <span class="u-text-body-color">DELETE Orders by OrderID (delete an Orders row by OrderID):&nbsp;</span>
+            </li>
+          </ul>
+          <p>
+            <span style="font-size: 1.25rem;">
+              <span class="u-text-body-color">requests.delete("http://127.0.0.1:5000/orders/&lt;order_id&gt;")</span>
+            </span>
+          </p>
+          <ul>
+            <li style="box-sizing: border-box; -webkit-user-drag: element !important; user-select: text !important; outline: 0px !important; cursor: text !important; pointer-events: auto !important; font-size: 1.25rem;">DELETE OrderDetails by OrderID/ProductID (delete an OrderDetails row by OrderID/ProductID):&nbsp;</li>
+          </ul>
+          <p>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">requests.get("http://127.0.0.1:5000/orders/&lt;order_id&gt;/&lt;product_id&gt; ")</span>
+          </p>
+          <p>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">Do you know that you can SQL-Injecting my database? Check this :&nbsp;</span>
+            <a href="introduction#sec-4a4f"></a>
+            <span class="u-text-body-color" style="font-size: 1.25rem;">
+              <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="introduction#sec-4a4f">SQLite Injections</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-border-2 u-border-grey-75 u-clearfix u-image u-shading u-section-10" id="sec-0823" data-image-width="1280" data-image-height="720">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-3 u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-white u-text-1">Have a nice day.</h2>
+          </div>
+        </div>
+        <p class="u-text u-text-body-alt-color u-text-default u-text-2">If you hang out in a Mount Hai Van coffee shop, feel free to contact me at 0766526091. I'll join with ​you.</p>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0a2c"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-align-left u-heading-font u-text u-text-1">A huge shout out to Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time guiding learners in&nbsp;Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice.<br>Also, thanks to people who spending time answering Stack Overflow questions, writing blogs, making videos for helping people in programming.
+        </p>
+        <p class="u-align-right u-text u-text-2">CONTACT ME:<br>
+          <span style="font-size: 1.25rem;">Contact Name: Duong Bich Hoa An<br>Phone: 0766526091<br>Email: anhoaduong2003@gmail.com<br>Facebook:&nbsp;https://www.facebook.com/hoaan.duong.3
+          </span>
+        </p>
+        <p class="u-align-left u-heading-font u-text u-text-3">HTML built by <a href="https://nicepage.com/c/about-us-html-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">NICEPACE&nbsp;</a>
+          <br>(I don't like to code HTML because it's inefficient and time-consuming, and I don't know&nbsp; how to code in HTML *sad*)<a href="https://nicepage.com/website-builder">&nbsp;<br>
+          </a>Backend built by <a href="https://nicepage.com/wordpress-website-builder" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">PYTHON</a>,&nbsp;<a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">FLASK</a> and <a href="https://nicepage.online" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">SQLITE</a>
+          <br>
+          <br>
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.review" target="_blank">
+        <span>Free Website Builder</span>
+      </a>. 
+    </section>
+  
+</body></html>

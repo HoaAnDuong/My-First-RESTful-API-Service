@@ -10,82 +10,95 @@ cursor = connection.cursor()
 
 
 #Tkinter
-window = tkinter.Tk()
-window.title("Python Sqlite Query Tool")
-window.geometry("1300x800")
+class SqliteQueryTool:
+    def __init__(self):
 
-canvas = tkinter.Canvas(window)
-canvas.pack(side="left",fill = "both",expand=True)
+        self.window = tkinter.Tk()
+        self.window.title("Python Sqlite Query Tool")
+        self.window.geometry("1300x800")
 
-
-
-title = tkinter.Label(canvas,text="Python Sqlite Query Tool",font=("Calibri","20"))
-title.pack(padx=5,pady=5)
+        self.canvas = tkinter.Canvas(self.window)
+        self.canvas.pack(side="left",fill = "both",expand=True)
 
 
-frame_1 = tkinter.Frame(canvas,width=500,height=300, background="white")
-frame_1.pack(padx=5,pady=5)
 
-option = tkinter.IntVar()
+        self.title = tkinter.Label(self.canvas,text="Python Sqlite Query Tool",font=("Calibri","20"))
+        self.title.pack(padx=5,pady=5)
 
-v_scrollbar_1 = tkinter.Scrollbar(frame_1,orient='vertical')
-v_scrollbar_1.pack(side="right",fill="y")
-h_scrollbar_1 = tkinter.Scrollbar(frame_1,orient='horizontal')
-h_scrollbar_1.pack(side="bottom",fill="x")
+        self.title_2 = tkinter.Label(self.canvas, text="Em nó dạo này hay ra dẻ quá :)))", font=("Calibri", "5"))
+        self.title_2.pack(padx=5, pady=5)
 
-radio_button_1 = tkinter.Radiobutton(canvas,text = "One statement at a time",variable=option, value=0)
-radio_button_1.pack()
-radio_button_2 = tkinter.Radiobutton(canvas,text = "More than One statement at a time",variable=option, value=1)
-radio_button_2.pack()
+        self.frame_1 = tkinter.Frame(self.canvas,width=500,height=300, background="white")
+        self.frame_1.pack(padx=5,pady=5)
 
-query_text = tkinter.Text(frame_1,font=("Cascadia Code","12"),xscrollcommand=h_scrollbar_1.set,yscrollcommand=v_scrollbar_1.set)
-v_scrollbar_1.config(command=query_text.yview)
-h_scrollbar_1.config(command=query_text.xview)
-query_text.pack()
+        self.option = tkinter.IntVar()
 
-def querry():
-    try:
-        if option.get()==0:
-            cursor.execute(query_text.get("1.0", "end-1c"))
-            query_out.insert("end", f"\n{cursor.fetchall()}")
-        elif option.get()==1:
-            for statement in query_text.get("1.0", "end-1c").split(";"):
-                cursor.execute(statement)
-                query_out.insert("end", f"\n{cursor.fetchall()}")
-    except Exception as e:
-        print(f"{type(e)}:{e}")
-        query_out.insert("end", f"\n{type(e)}:{e}")
+        self.v_scrollbar_1 = tkinter.Scrollbar(self.frame_1,orient='vertical')
+        self.v_scrollbar_1.pack(side="right",fill="y")
+        self.h_scrollbar_1 = tkinter.Scrollbar(self.frame_1,orient='horizontal')
+        self.h_scrollbar_1.pack(side="bottom",fill="x")
 
-button = tkinter.Button(canvas,text="Execute!!!",font=("Calibri","20"),command =querry)
+        self.radio_button_1 = tkinter.Radiobutton(self.canvas,text = "One statement at a time",variable=self.option, value=0)
+        self.radio_button_1.pack()
+        self.radio_button_2 = tkinter.Radiobutton(self.canvas,text = "More than One statement at a time",variable=self.option, value=1)
+        self.radio_button_2.pack()
 
-button.pack(padx=5,pady=5)
+        self.query_text = tkinter.Text(self.frame_1,font=("Cascadia Code","12"),xscrollcommand=self.h_scrollbar_1.set,yscrollcommand=self.v_scrollbar_1.set)
+        self.v_scrollbar_1.config(command=self.query_text.yview)
+        self.h_scrollbar_1.config(command=self.query_text.xview)
+        self.query_text.pack()
 
-canvas_2 = tkinter.Canvas(window)
-canvas_2.pack(side = "right",fill="both",expand=True)
 
-title_2 = tkinter.Label(canvas_2,text="Output",font=("Calibri","20"))
-title_2.pack(padx=5,pady=5)
 
-frame_2 = tkinter.Frame(canvas_2,width=500,height=300,background="black",highlightcolor="white")
-frame_2.pack(padx=5,pady=5)
+        self.button = tkinter.Button(self.canvas,text="Execute!!!",font=("Calibri","20"),command =self.querry)
 
-v_scrollbar_2 = tkinter.Scrollbar(frame_2,orient='vertical')
-v_scrollbar_2.pack(side="right",fill="y")
-h_scrollbar_2 = tkinter.Scrollbar(frame_2,orient='horizontal')
-h_scrollbar_2.pack(side="bottom",fill="x")
+        self.button.pack(padx=5,pady=5)
 
-query_out = tkinter.Text(frame_2,font=("Cascadia Code","12"),foreground="white",background="black",xscrollcommand=h_scrollbar_2.set,yscrollcommand=v_scrollbar_2.set)
-v_scrollbar_2.config(command=query_out.yview)
-h_scrollbar_2.config(command=query_text.yview)
-query_out.pack()
+        self.canvas_2 = tkinter.Canvas(self.window)
+        self.canvas_2.pack(side = "right",fill="both",expand=True)
 
-def delete():
-    query_out.delete("1.0","end")
+        self.title_2 = tkinter.Label(self.canvas_2,text="Output",font=("Calibri","20"))
+        self.title_2.pack(padx=5,pady=5)
 
-delete_button = tkinter.Button(canvas_2,text="Delete",font=("Calibri","20"),command = delete)
-delete_button.pack()
+        self.frame_2 = tkinter.Frame(self.canvas_2,width=500,height=300,background="black",highlightcolor="white")
+        self.frame_2.pack(padx=5,pady=5)
 
-window.mainloop()
+        self.v_scrollbar_2 = tkinter.Scrollbar(self.frame_2,orient='vertical')
+        self.v_scrollbar_2.pack(side="right",fill="y")
+        self.h_scrollbar_2 = tkinter.Scrollbar(self.frame_2,orient='horizontal')
+        self.h_scrollbar_2.pack(side="bottom",fill="x")
+
+        self.query_out = tkinter.Text(self.frame_2,font=("Cascadia Code","12"),foreground="white",background="black",xscrollcommand=self.h_scrollbar_2.set,yscrollcommand=self.v_scrollbar_2.set)
+        self.v_scrollbar_2.config(command=self.query_out.yview)
+        self.h_scrollbar_2.config(command=self.query_text.yview)
+        self.query_out.pack()
+        self.delete_button = tkinter.Button(self.canvas_2, text="Delete", font=("Calibri", "20"), command=self.delete)
+        self.delete_button.pack()
+    def querry(self):
+        try:
+            if self.option.get()==0:
+                cursor.execute(self.query_text.get("1.0", "end-1c"))
+                self.query_out.insert("end", f"\n{cursor.fetchall()}")
+            elif self.option.get()==1:
+                for statement in self.query_text.get("1.0", "end-1c").split(";"):
+                    cursor.execute(statement)
+                    self.query_out.insert("end", f"\n{cursor.fetchall()}")
+        except Exception as e:
+            print(f"{type(e)}:{e}")
+            self.query_out.insert("end", f"\n{type(e)}:{e}")
+    def delete(self):
+        self.query_out.delete("1.0","end")
+    def mainloop(self):
+        self.window.mainloop()
+    def destroy(self):
+        self.window.destroy()
+
+sqlitetool1 = SqliteQueryTool()
+sqlitetool1.mainloop()
+
+
+
+
 
 
 

@@ -183,7 +183,7 @@ CREATE TABLE Orders(
 	EmployeeID varchar(10),
 	ShipperID varchar(10),
 	foreign key(CustomerID) references Customers(CustomerID),
-	foreign key(EmployeeID) references "_Employees_old"(EmployeeID),
+	foreign key(EmployeeID) references Employees(EmployeeID),
 	foreign key(ShipperID) references Shippers(ShipperID)
 );
 CREATE TABLE OrderDates(
@@ -221,6 +221,7 @@ INSERT INTO OrderDates SELECT * FROM OrderDates_old;
 INSERT INTO OrderPayments SELECT * FROM OrderPayments_old;
 INSERT INTO OrderDetails SELECT * FROM OrderDetails_old;
 
+
 COMMIT;
 
 PRAGMA foreign_keys=on;
@@ -228,12 +229,12 @@ PRAGMA foreign_keys=on;
 CREATE TRIGGER auto_add_order_payment
 after insert on Orders
 begin
-	insert into OrderPayments values (NEW.OrderID,0,'','unpaid');
+        insert into OrderPayments values (NEW.OrderID,0,'','unpaid');
 end;
 CREATE TRIGGER auto_add_order_date
 after insert on Orders
 begin
-	insert into OrderDates values (NEW.OrderID,datetime('now','localtime'));
+        insert into OrderDates values (NEW.OrderID,datetime('now','localtime'));
 end;
 CREATE TRIGGER block_update_on_order_dates
 before update on OrderDates
@@ -301,24 +302,6 @@ select case
                 raise(ABORT,'Not enough item in warehouse')
 end;
 end;
-CREATE TRIGGER order_payment_before_update_trigger_2
-before update on OrderPayments
-for each row
-when NEW.Status == 'paid'
-begin
-        select case
-                when NEW.Total <> OLD.Total and NEW.Total = OLD.Total then
-                raise(ABORT,'Total cannot be changed')
-        end;
-        update OrderPayments
-        set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),
-        Status = 'paid',
-        PaymentMethod = NEW.PaymentMethod
-        where OrderID = NEW.OrderID;
-        update Products
-        set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)
-        where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
-end;
 CREATE TRIGGER order_payment_before_update_trigger_3
 before update on OrderPayments
 for each row
@@ -335,6 +318,96 @@ begin
                 where OrderID = NEW.OrderID;
 
 end;
+CREATE TRIGGER order_details_before_insert_trigger
+before insert on OrderDetails
+for each row
+begin
+select case
+        when (Select Status from OrderPayments where OrderID = NEW.OrderID) = "paid" then
+                raise(ABORT,"Cannot insert details on a paid order.")
+        when (Select Status from OrderPayments where OrderID = NEW.OrderID) = "cancelled" then
+                raise(ABORT,"Cannot insert details on a cancelled order.")
+end;
+end;
+CREATE TRIGGER order_details_before_update_trigger
+before update on OrderDetails
+for each row
+begin
+select case
+        when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "paid" then
+                raise(ABORT,"Cannot update details on a paid order.")
+        when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "cancelled" then
+                raise(ABORT,"Cannot update details on a cancelled order.")
+end;
+end;
+CREATE TRIGGER order_details_before_delete_trigger
+before delete on OrderDetails
+for each row
+begin
+select case
+        when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "paid" then
+                raise(ABORT,"Cannot delete details on a paid order.")
+        when (Select Status from OrderPayments where OrderID = OLD.OrderID) = "cancelled" then
+                raise(ABORT,"Cannot update details on a cancelled order.")
+end;
+end;
+CREATE TRIGGER order_payment_before_update_trigger_2
+before update on OrderPayments
+for each row
+when NEW.Status == 'paid'
+begin
+        select case
+                when NEW.Total <> OLD.Total and NEW.Total = OLD.Total then
+                raise(ABORT,'Total cannot be changed')
+                when (select count(*) from OrderDetails where OrderID = OLD.OrderID) = 0 then
+                raise(ABORT,'Details cannot be empty before order is paid.')
+        end;
+        update OrderPayments
+        set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),
+        Status = 'paid',
+        PaymentMethod = NEW.PaymentMethod
+        where OrderID = NEW.OrderID;
+        update Products
+        set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)
+        where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
+end;
+CREATE TRIGGER delete_relatives_after_delete_on_orders
+after delete on Orders
+begin
+	delete from OrderDates where OrderID = OLD.OrderID;
+	delete from OrderPayments where OrderID = OLD.OrderID;
+	delete from OrderDetails where OrderID = OLD.OrderID;
+end;
+CREATE TRIGGER order_dates_before_delete_trigger
+before delete on OrderDates
+for each row
+begin
+select case
+        when (select count(*) from Orders where OrderID = OLD.OrderID) > 0 then
+                raise(ABORT,"Cannot delete the order date before delete that order.")
+end;
+end;
+CREATE TRIGGER order_payments_before_delete_trigger
+before delete on OrderPayments
+for each row
+begin
+select case
+        when (select count(*) from Orders where OrderID = OLD.OrderID) > 0 then
+                raise(ABORT,"Cannot delete the order payment before delete that order.")
+end;
+end;
+CREATE TRIGGER orders_before_update
+before update on Orders
+for each row
+begin
+select case 
+	when (select Status from OrderPayments where OrderID = OLD.OrderID) = "paid" then
+		raise(ABORT,"Cannot update on a paid order.")
+	when (select Status from OrderPayments where OrderID = OLD.OrderID) = "cancelled" then
+		raise(ABORT,"Cannot update on a cancelled order.") 
+end;
+end;
+
 
 DROP TRIGGER auto_add_order_payment;
 DROP TRIGGER auto_add_order_date;
@@ -353,7 +426,7 @@ SELECT * FROM Customers;
 SELECT * FROM Suppliers;
 SELECT * FROM Categories;
 SELECT * FROM Products;
-SELECT * FROM Employeess;
+SELECT * FROM Employees;
 SELECT * FROM Orders;
 SELECT * FROM OrderDates;
 SELECT * FROM OrderPayments;
@@ -369,3 +442,7 @@ DROP TABLE Orders_old;
 DROP TABLE OrderDates_old;
 DROP TABLE OrderPayments_old;
 DROP TABLE OrderDetails_old;
+
+select Orders.OrderID, Orders.CustomerID, CustomerName, Orders.EmployeeID, (FirstName || " " || LastName), Orders.ShipperID, ShipperName, Date, PaymentMethod, OrderPayments.Status, Total from Orders inner join Customers on Orders.CustomerID = Customers.CustomerID inner join Employees on Orders.EmployeeID = Employees.EmployeeID inner join Shippers on Orders.ShipperID = Shippers.ShipperID inner join OrderDates on Orders.OrderID = OrderDates.OrderID inner join OrderPayments on Orders.OrderID = OrderPayments.OrderID;
+
+select OrderDetails.ProductID, ProductName, Quantity, Price, (Quantity*Price) from OrderDetails inner join Products on OrderDetails.ProductID = Products.ProductID 
