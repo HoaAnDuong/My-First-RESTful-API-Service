@@ -59,9 +59,11 @@ begin
 	PaymentMethod = NEW.PaymentMethod
 	where OrderID = NEW.OrderID;
 	update Products 
-	set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)
-	where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
+	set Unit = (select Unit-sum(Quantity) from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID and OrderID=OLD.OrderID) 
+	where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID and OrderID=OLD.OrderID);
 end;
+
+
 DROP TRIGGER order_payment_before_update_trigger_3;
 CREATE TRIGGER order_payment_before_update_trigger_3
 before update on OrderPayments
@@ -351,6 +353,7 @@ select case
                 raise(ABORT,"Cannot update details on a cancelled order.")
 end;
 end;
+DROP TRIGGER order_payment_before_update_trigger_2;
 CREATE TRIGGER order_payment_before_update_trigger_2
 before update on OrderPayments
 for each row
@@ -362,14 +365,16 @@ begin
                 when (select count(*) from OrderDetails where OrderID = OLD.OrderID) = 0 then
                 raise(ABORT,'Details cannot be empty before order is paid.')
         end;
+
+	update Products
+        set Unit = afterUnit from (select (Unit-Quantity) as afterUnit,ProductID,OrderID from OrderDetails inner join Products on Products.ProductID = OrderDetails.ProductID and OrderID = NEW.OrderID)
+	where Products.ProductID = OrderDetails.ProductID and OrderID = NEW.OrderID;	
+
         update OrderPayments
         set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),
         Status = 'paid',
         PaymentMethod = NEW.PaymentMethod
         where OrderID = NEW.OrderID;
-        update Products
-        set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)
-        where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);
 end;
 CREATE TRIGGER delete_relatives_after_delete_on_orders
 after delete on Orders
@@ -443,6 +448,37 @@ DROP TABLE OrderDates_old;
 DROP TABLE OrderPayments_old;
 DROP TABLE OrderDetails_old;
 
-select Orders.OrderID, Orders.CustomerID, CustomerName, Orders.EmployeeID, (FirstName || " " || LastName), Orders.ShipperID, ShipperName, Date, PaymentMethod, OrderPayments.Status, Total from Orders inner join Customers on Orders.CustomerID = Customers.CustomerID inner join Employees on Orders.EmployeeID = Employees.EmployeeID inner join Shippers on Orders.ShipperID = Shippers.ShipperID inner join OrderDates on Orders.OrderID = OrderDates.OrderID inner join OrderPayments on Orders.OrderID = OrderPayments.OrderID;
+DROP VIEW OrderViews;
 
-select OrderDetails.ProductID, ProductName, Quantity, Price, (Quantity*Price) from OrderDetails inner join Products on OrderDetails.ProductID = Products.ProductID 
+CREATE VIEW OrderViews as
+
+select Orders.OrderID, Orders.CustomerID, CustomerName, Orders.EmployeeID, (FirstName || " " || LastName) as EmployeeName, Orders.ShipperID, ShipperName, Date, PaymentMethod, OrderPayments.Status, Total from Orders 
+inner join Customers on Orders.CustomerID = Customers.CustomerID 
+inner join Employees on Orders.EmployeeID = Employees.EmployeeID 
+inner join Shippers on Orders.ShipperID = Shippers.ShipperID 
+inner join OrderDates on Orders.OrderID = OrderDates.OrderID 
+inner join OrderPayments on Orders.OrderID = OrderPayments.OrderID;
+
+DROP VIEW OrderDetailViews;
+
+CREATE VIEW OrderDetailViews as
+
+select OrderID, OrderDetails.ProductID, ProductName, Quantity, Price, (Quantity*Price) as Estimated from OrderDetails 
+inner join Products on OrderDetails.ProductID = Products.ProductID;
+
+drop view ProductViews;
+create view ProductViews as
+select ProductID, ProductName, Products.SupplierID, SupplierName, Products.CategoryID, CategoryName, Unit, Price from Products
+inner join Suppliers on Suppliers.SupplierID = Products.SupplierID
+inner join Categories on Categories.CategoryID = Products.CategoryID;
+
+select date(Date) as Day, Products.ProductID, Products.ProductName, Products.CategoryID, CategoryName, sum(Quantity) as Quantity, Price, sum(Quantity*Price) as Revenue  from OrderDetails
+inner join Products on OrderDetails.ProductID = Products.ProductID
+inner join Categories on Products.CategoryID = Categories.CategoryID 
+inner join OrderDates on OrderDetails.OrderID = OrderDates.OrderID
+inner join OrderPayments on OrderDetails.OrderID = OrderPayments.OrderID and OrderPayments.Status = 'paid'
+group by Products.ProductID,Day
+order by Day;
+
+select date(Date) as Day, OrderPayments.OrderID, Total, PaymentMethod from OrderPayments 
+inner join OrderDates on OrderPayments.OrderID = OrderDates.OrderID and Status = 'paid';

@@ -1054,8 +1054,8 @@
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; PaymentMethod = NEW.PaymentMethod</p>
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where OrderID = NEW.OrderID;</p>
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; update Products</p>
-          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)</p>
-          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Unit = (Unit-Quantity) from OrderDetails</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where Products.ProductID = OrderDetails.ProductID and OrderID = OLD.OrderID;</p>
           <p style="line-height: 1;">end;</p>
         </div>
       </div>
@@ -1239,8 +1239,6 @@
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update on a cancelled order.")</p>
           <p style="line-height: 1;">end;</p>
           <p style="line-height: 1;">end;</p>
-          <p style="line-height: 1;">Do you know that you can SQL-Injecting my database? Check this : <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="introduction#sec-4a4f">SQL Injections</a>
-          </p>
         </div>
       </div>
     </section>
