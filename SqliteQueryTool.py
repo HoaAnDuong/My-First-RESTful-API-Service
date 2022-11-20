@@ -25,9 +25,6 @@ class SqliteQueryTool:
         self.title = tkinter.Label(self.canvas,text="Python Sqlite Query Tool",font=("Calibri","20"))
         self.title.pack(padx=5,pady=5)
 
-        self.title_2 = tkinter.Label(self.canvas, text="Em nó dạo này hay ra dẻ quá :)))", font=("Calibri", "5"))
-        self.title_2.pack(padx=5, pady=5)
-
         self.frame_1 = tkinter.Frame(self.canvas,width=500,height=300, background="white")
         self.frame_1.pack(padx=5,pady=5)
 
