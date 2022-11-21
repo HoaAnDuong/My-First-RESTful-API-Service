@@ -68,6 +68,7 @@
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Sending-Requests.html">Sending Requests</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Database.html">Database</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Data-Visulization.html">Data Visulization</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Customers</a>
@@ -89,6 +90,7 @@
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Sending-Requests.html">Sending Requests</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Database.html">Database</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Data-Visulization.html">Data Visulization</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Customers</a>
@@ -122,11 +124,6 @@
           <h1>
             <span class="u-text-body-color">This is the page for people who have curiosity on this project database.</span>
           </h1>
-          <p>
-            <span class="u-text-body-color">
-              <span style="font-weight: 700;">Knowing the Database is knowing all the secrets of the Website</span>. However, because this project is just for references, I will show its all to you guys. *feel kind*
-            </span>
-          </p>
           <p id="isPasted">
             <span style="font-size: 1.25rem;">The Database have a total of 10 tables containing all data for Store Management:</span>
           </p>
@@ -170,7 +167,7 @@
             <img src="images/image31.png" width="570" align="center" style="width: 948px;" class="fr-dib fr-fic">
           </p>
           <p>
-            <span style="font-size: 1.25rem;">In below part, I will show you everything on my Database. Let's get started!!!</span>
+            <span style="font-size: 1.25rem;">In below part, I will show you Table and Triggers on my Database. Let's get started!!!</span>
           </p>
         </div>
         <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-1">
@@ -845,7 +842,7 @@
           <p>END;</p>
           <p>To get all the triggers:</p>
           <p>SELECT SQL FROM sqlite_master WHERE type = 'trigger';</p>
-          <p>Below sections are Triggers I added to this database. Some of them maybe useless, some of them maybe not restricted enough. However, these triggers seem helpful in Database Managing.</p>
+          <p>Below sections are Triggers I added to this database. Some of them maybe helpless, some of them maybe not restricted enough. However, these triggers seem helpful in Database Managing.</p>
         </div>
       </div>
     </section>
@@ -955,14 +952,14 @@
             <li>Usage: Force Inserted Payment Total to be 0 and Status must be unpaid.</li>
             <li>SQL query:</li>
           </ul>
-          <p id="isPasted">CREATE TRIGGER order_payment_before_insert_trigger</p>
-          <p>before insert on OrderPayments</p>
-          <p>begin</p>
-          <p>&nbsp; &nbsp; &nbsp; &nbsp; select case</p>
-          <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; when NEW.Total != 0 or NEW.Status != 'unpaid' then</p>
-          <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Inserted Payment Total must be 0 and Status must be unpaid.')</p>
-          <p>&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
-          <p>end;</p>
+          <p id="isPasted" style="line-height: 1;">CREATE TRIGGER order_payment_before_insert_trigger</p>
+          <p style="line-height: 1;">before insert on OrderPayments</p>
+          <p style="line-height: 1;">begin</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; select case</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; when NEW.Total != 0 or NEW.Status != 'unpaid' then</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,'Inserted Payment Total must be 0 and Status must be unpaid.')</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; end;</p>
+          <p style="line-height: 1;">end;</p>
         </div>
       </div>
     </section>
@@ -1036,10 +1033,10 @@
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Total = (select sum(Quantity*Price) from OrderDetails inner join Products on OrderID = NEW.OrderID and OrderDetails.ProductID = Products.ProductID),</p>
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; Status = 'paid',</p>
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; PaymentMethod = NEW.PaymentMethod</p>
-          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where OrderID = NEW.OrderID;</p>
-          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; update Products</p>
-          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Unit = (select Unit-Quantity from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID)</p>
-          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where ProductID in (select Products.ProductID from Products inner join OrderDetails on Products.ProductID = OrderDetails.ProductID);</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where OrderID = NEW.OrderID; &nbsp; &nbsp;</p>
+          <p id="isPasted" style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; update Products</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; set Unit = Unit-Quantity from OrderDetails</p>
+          <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; where Products.ProductID = OrderDetails.ProductID and OrderID = OLD.OrderID;</p>
           <p style="line-height: 1;">end;</p>
         </div>
       </div>
@@ -1049,7 +1046,7 @@
         <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
           <h2>2.10. order_payment_before_update_trigger_3 &nbsp; &nbsp;&nbsp;</h2>
           <ul>
-            <li>Usage: Block Total changes on 'cancelled' an 'unpaid' Orders and set Total to 0 (seem useless)</li>
+            <li>Usage: Block Total changes on 'cancelled' an 'unpaid' Orders and set Total to 0 (seem helpless)</li>
           </ul>
           <p>
             <img src="images/image32.png" width="560" style="width: 857px;" class="fr-dib fr-fic">
@@ -1146,10 +1143,10 @@
         <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
           <h2>2.14. delete_relatives_after_delete_on_orders &nbsp; &nbsp; &nbsp;</h2>
           <ul>
-            <li>Usage: Delete all Orders's Relatives after delete on Orders</li>
+            <li>Usage: Delete all Orders's Relatives after deleteting Orders</li>
           </ul>
           <p>
-            <img src="images/image33.png" width="560" display="block" align="center" style="width: 761px;" class="fr-dib fr-fic">
+            <img src="images/image33.png" width="560" align="center" style="width: 761px;" class="fr-dib fr-fic">
           </p>
           <ul>
             <li>SQL query:</li>
@@ -1223,7 +1220,9 @@
           <p style="line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise(ABORT,"Cannot update on a cancelled order.")</p>
           <p style="line-height: 1;">end;</p>
           <p style="line-height: 1;">end;</p>
-          <p style="line-height: 1;">Do you know that you can SQL-Injecting my database? Check this : <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Introduction.html#sec-4a4f">SQL Injections</a>
+          <p style="line-height: 1;">If you want to have more Information about Data Visualization, read <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Data-Visulization.html">Data Visulization</a>
+          </p>
+          <p style="line-height: 1;">If you want to know more about Sending Requests, read&nbsp;<a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2" href="Sending-Requests.html">Sending Requests</a>
           </p>
         </div>
       </div>
@@ -1232,14 +1231,14 @@
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0a2c"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-align-left u-heading-font u-text u-text-1">A huge shout out to Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time guiding learners in&nbsp;Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice.<br>Also, thanks to people who spending time answering Stack Overflow questions, writing blogs, making videos for helping people in programming.
+        <p class="u-align-left u-heading-font u-text u-text-1">A huge shout out to Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time helping learners in&nbsp;Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice.<br>Also, thanks to people who spending time answering Stack Overflow questions, writing blogs, making videos for helping people in programming.
         </p>
         <p class="u-align-right u-text u-text-2">CONTACT ME:<br>
           <span style="font-size: 1.25rem;">Contact Name: Duong Bich Hoa An<br>Phone: 0766526091<br>Email: anhoaduong2003@gmail.com<br>Facebook:&nbsp;https://www.facebook.com/hoaan.duong.3
           </span>
         </p>
         <p class="u-align-left u-heading-font u-text u-text-3">HTML built by <a href="https://nicepage.com/c/about-us-html-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">NICEPACE&nbsp;</a>
-          <br>(I don't like to code HTML because it's inefficient and time-consuming, and I don't know&nbsp; how to code in HTML *sad*)<a href="https://nicepage.com/website-builder">&nbsp;<br>
+          <br>(I don't like to code HTML because it's inefficient and time-consuming)<a href="https://nicepage.com/website-builder">&nbsp;<br>
           </a>Backend built by <a href="https://nicepage.com/wordpress-website-builder" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">PYTHON</a>,&nbsp;<a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">FLASK</a> and <a href="https://nicepage.online" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">SQLITE</a>
           <br>
           <br>

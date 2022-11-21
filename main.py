@@ -17,6 +17,9 @@ def introduction_page():
 @app.route("/sending-requests")
 def sending_requests_page():
     return flask.render_template("Sending-Requests.html")
+@app.route("/data-visualization")
+def data_visualization_page():
+    return flask.render_template("Data-Visualization.html")
 @app.route("/database")
 def database_page():
     customers_table = connection.execute("select * from Customers limit 5").fetchall()

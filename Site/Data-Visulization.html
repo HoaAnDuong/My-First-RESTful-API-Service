@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="My First RESTful API Webservice">
+    <meta name="description" content="">
+    <title>Data Visulization</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Data-Visulization.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.21.12, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Data Visulization">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-border-2 u-border-grey-75 u-clearfix u-header u-header" id="sec-02e7"><div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">My First RESTful API Webservice</h2>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="MD">
+          <div class="menu-collapse">
+            <a class="u-button-style u-nav-link" href="#" style="padding: 5px 0px; font-size: calc(1em + 12px);">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5bb2"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-5bb2" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Sending-Requests.html">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Database.html">Database</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="Data-Visulization.html">Data Visulization</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Introduction.html">Introduction</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">Documentations</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Sending-Requests.html">Sending Requests</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Database.html">Database</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Data-Visulization.html">Data Visulization</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link">APIs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Customers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/employees">Employees</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/shippers">Shippers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/customers">Suppliers</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/categories">Categories</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/products">Products</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="http://127.0.0.1:5000/orders">Orders</a>
+</li></ul>
+</div>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-image u-section-1" id="sec-6011" data-image-width="1280" data-image-height="720">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-3 u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-default u-text-white u-text-1">DATA VISUALIZATION</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-b403">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>
+            <span style="font-size: 2.25rem;">Here the documents of Data Visualization Tool.</span>
+          </h1>
+          <p>Data Visualization is a field that people use graphic respresentation to analyse the data and imformation. Data Visualization is good for analyse the data, when it visualize the data,to make people easily to see the characteristics and trends of the data and help people make right decisions in business.</p>
+          <p>In this projects, i made a Data Visualisation tool by Pandas, Matplotlib, Seaborn, Tkinter. More details here: <a class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Introduction.html#sec-d7b0">Introduction</a>
+          </p>
+          <p>
+            <img src="images/image96.png" width="570" align="center" style="width: 1034px;" class="fr-dib fr-fic">
+          </p>
+          <p>The GUIs have two section: Field and Option. In the Field section, we have 3 Field: Revenue(Revenue Visualization), Storage(Storage Visualization), Tendency (Tendency Visualization). In the Option, we have Option corresponding to Field we selected(I selected Tendency Field):</p>
+          <p>
+            <img src="images/image97.png" width="570" align="center" style="width: 293px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+          <p>In the below paragraphs, I will give information about these Graphs. Let's get started:</p>
+        </div>
+        <div class="u-container-style u-grey-10 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+              <h2>Table of Contents</h2>
+              <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-8f3f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>1. Revenue</h1>
+          <p>Revenue is a graphs field containing graph visualizing the Revenue Data. Here its graphs:</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-ea13">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.1. Revenue Group By Products</h2>
+          <ul>
+            <li>Usage: Visualize Revenue Group By Products and Date</li>
+          </ul>
+          <p>
+            <img src="images/image98.png" width="570" style="width: 884px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="carousel_1184">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.2. Revenue Group By Categories</h2>
+          <ul>
+            <li>Usage: Visualize Revenue Group By Categories and Date</li>
+          </ul>
+          <p>
+            <img src="images/image99.png" width="570" display="block" align="center" style="width: 878px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="carousel_3348">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.3. Revenue Group By Orders</h2>
+          <ul>
+            <li>Usage: Visualize Revenue Group By Orders and Date</li>
+          </ul>
+          <p>
+            <img src="images/image100.png" width="570" display="block" align="center" style="width: 866px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="carousel_cbb5">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.4. Revenue Group By Day</h2>
+          <ul>
+            <li>Usage: Visualize Revenue Group By Day</li>
+          </ul>
+          <p>
+            <img src="images/image101.png" width="570" display="block" align="center" style="width: 864px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="carousel_2682">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.5. Propotion of Products in Revenue</h2>
+          <ul>
+            <li>Usage: Visualize Revenue Propotioned by Products</li>
+          </ul>
+          <p>
+            <img src="images/image102.png" width="570" align="center" style="width: 979px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="carousel_443c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>1.6. Propotion of Categories in Revenue</h2>
+          <ul>
+            <li>Usage: Visualize Revenue Propotioned by Categories</li>
+          </ul>
+          <p>
+            <img src="images/image103.png" width="570" align="center" style="width: 946px;" class="fr-dib fr-fic">
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="carousel_79d0">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>2. Storage</h1>
+          <p>Storage is a graphs field containing graph visualizing the Storage Data. Here its graphs:</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="carousel_80e6">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.1. Products in Storage's Price and Unit</h2>
+          <ul>
+            <li>Usage: Visualize Product's Price and Unit</li>
+          </ul>
+          <p>
+            <img src="images/image104.png" width="570" align="center" style="width: 895px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-12" id="carousel_c765">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>2.3. Proportion of Categories in Storage's Total Value</h2>
+          <ul>
+            <li>Usage: Visualize Total Value of Categories in Storage</li>
+          </ul>
+          <p>
+            <img src="images/image107.png" width="570" align="center" style="width: 889px;" class="fr-dib fr-fic">
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="carousel_83ee">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h1>3. Tendency</h1>
+          <p>Tendency is a graphs field containing graph visualizing Purchashing Tendency. Here its graphs:</p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-14" id="carousel_9d63">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>3.1. Products Purchasing Tendency</h2>
+          <ul>
+            <li>Usage: Visualize Products Purchasing Tendency and Its Revenue</li>
+          </ul>
+          <p>
+            <img src="images/image108.png" width="570" display="block" align="center" style="width: 854px;" class="fr-dib fr-fic">
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="carousel_2e3f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>3.2. Categories Purchasing Tendency</h2>
+          <ul>
+            <li>Usage: Visualize Categories Purchasing Tendency and Its Revenue</li>
+          </ul>
+          <p>
+            <img src="images/image109.png" width="570" display="block" align="center" style="width: 923px;" class="fr-dib fr-fic">
+          </p>
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-16" id="carousel_7cc2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>3.3. Payment Method Tendency</h2>
+          <ul>
+            <li>Usage: Visualize Payment Method Tendency and Its Revenue</li>
+          </ul>
+          <p>
+            <br>
+          </p>
+          <p>
+            <img src="images/image110.png" width="570" display="block" align="center" style="width: 898px;" class="fr-dib fr-fic">
+            <br>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="carousel_de5c">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+          <h2>3.4. Status Tendency</h2>
+          <ul>
+            <li>Usage: Visualize Status Tendency</li>
+          </ul>
+          <p>
+            <img src="images/image112.png" width="570" display="block" align="center" style="width: 915px;" class="fr-dib fr-fic">
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0a2c"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-align-left u-heading-font u-text u-text-1">A huge shout out to Van Minh Le and people in Hybrid Technologies Python Training Course's team for spending time helping learners in&nbsp;Python Training Course's team and giving me an opportunnity to build my first RESTful API Webservice.<br>Also, thanks to people who spending time answering Stack Overflow questions, writing blogs, making videos for helping people in programming.
+        </p>
+        <p class="u-align-right u-text u-text-2">CONTACT ME:<br>
+          <span style="font-size: 1.25rem;">Contact Name: Duong Bich Hoa An<br>Phone: 0766526091<br>Email: anhoaduong2003@gmail.com<br>Facebook:&nbsp;https://www.facebook.com/hoaan.duong.3
+          </span>
+        </p>
+        <p class="u-align-left u-heading-font u-text u-text-3">HTML built by <a href="https://nicepage.com/c/about-us-html-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">NICEPACE&nbsp;</a>
+          <br>(I don't like to code HTML because it's inefficient and time-consuming)<a href="https://nicepage.com/website-builder">&nbsp;<br>
+          </a>Backend built by <a href="https://nicepage.com/wordpress-website-builder" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">PYTHON</a>,&nbsp;<a href="https://nicepage.com/k/home-improvement-website-templates" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">FLASK</a> and <a href="https://nicepage.online" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">SQLITE</a>
+          <br>
+          <br>
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>

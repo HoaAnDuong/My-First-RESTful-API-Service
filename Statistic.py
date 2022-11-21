@@ -143,12 +143,14 @@ def RevenueByDaysGraph():
 
 def StorageProductsPriceAndUnitGraph():
     figure = Figure(dpi=100)
-    ax = figure.subplots()
-    ax1 = ax.twinx()
+    ax,ax1 = figure.subplots(2,1)
+
     seaborn.barplot(data=ProductDF, x='ProductID',color = (random.random(),random.random(),random.random()), y='Unit', ax=ax,label="Unit")
     for i in ax.containers:
         ax.bar_label(i,label_type='center')
-    seaborn.pointplot(data=ProductDF,x='ProductID',color=(random.random(),random.random(),random.random()),y="Price",ax=ax1,label="Price")
+    seaborn.barplot(data=ProductDF,x='ProductID',color=(random.random(),random.random(),random.random()),y="Price",ax=ax1,label="Price(VND)")
+    for i in ax1.containers:
+        ax1.bar_label(i,label_type='center')
 
     ax.legend(loc=1)
     ax1.legend(loc=2)
@@ -172,7 +174,7 @@ def RevenueProportionedByProducts():
     label_list = [ f'{p} ({r} VND)' for p,r in zip(products,revenues)]
     ax.pie(revenues,explode= expl,colors=color_pallette,autopct = '%1.1f%%',labels=label_list)
     ax.legend(loc = 'lower left',bbox_to_anchor=(0.4,-0.1))
-    ax.set_title("Proportion of Product in Revenue\n(Total: {} VND)".format(TotalRevenue))
+    ax.set_title("Proportion of Products in Revenue\n(Total: {} VND)".format(TotalRevenue))
     return figure
 
 def RevenueProportionedByCategories():
@@ -188,10 +190,10 @@ def RevenueProportionedByCategories():
     label_list = [f'{c} ({r} VND)' for c,r in zip(categories, revenues)]
     ax.pie(revenues, explode=expl, colors=color_pallette, autopct='%1.1f%%', labels=label_list)
     ax.legend(loc='lower left', bbox_to_anchor=(0.6, -0.1))
-    ax.set_title("Proportion of Product in Revenue\n(Total: {} VND)".format(TotalRevenue))
+    ax.set_title("Proportion of Categories in Revenue\n(Total: {} VND)".format(TotalRevenue))
     return figure
 
-def StorageTotalPropotionedByProducts():
+def StorageTotalProportionedByProducts():
     figure = Figure(dpi=100)
     ax = figure.subplots()
     expl = [0.01] * len(ProductDF)
@@ -207,7 +209,7 @@ def StorageTotalPropotionedByProducts():
     ax.set_title("Proportion of Products in Storage's Total Value\n(Total: {} VND)".format(TotalStorage))
     return figure
 
-def StorageTotalPropotionedByCategories():
+def StorageTotalProportionedByCategories():
     figure = Figure(dpi=100)
     ax = figure.subplots()
     expl = [0.01] * len(TotalByCategories)
@@ -312,8 +314,8 @@ def StatusTendencyGraph():
 
     ax2.legend()
     ax.legend(loc='lower left', bbox_to_anchor=(1.1, 0.2))
-    ax2.set_title("Order's Status Group by Day\n(Count: {})".format(sum(count)))
-    ax.set_title("Order's Status Proportion\n(Count: {})".format(sum(count)))
+    ax2.set_title("Status Count Group by Days\n(Count: {})".format(sum(count)))
+    ax.set_title("Status Proportion\n(Count: {})".format(sum(count)))
     return figure
 
 
@@ -344,7 +346,7 @@ class Statistic:
 
         self.set_revenue_button()
 
-        self.plot_canvas = FigureCanvasTkAgg(StatusTendencyGraph(),master=self.window)
+        self.plot_canvas = FigureCanvasTkAgg(RevenueGroupByProductsGraph(),master=self.window)
         self.plot_canvas.get_tk_widget().pack(side=tkinter.RIGHT, fill=tkinter.BOTH, expand=True)
         self.plot_canvas.draw()
         self.window.mainloop()
@@ -428,11 +430,11 @@ class Statistic:
         self.plot_canvas.draw()
     def storage_total_proportioned_by_products(self):
         self.clear()
-        self.plot_canvas.figure = StorageTotalPropotionedByProducts()
+        self.plot_canvas.figure = StorageTotalProportionedByProducts()
         self.plot_canvas.draw()
     def storage_total_proportioned_by_categories(self):
         self.clear()
-        self.plot_canvas.figure = StorageTotalPropotionedByCategories()
+        self.plot_canvas.figure = StorageTotalProportionedByCategories()
         self.plot_canvas.draw()
     def products_purchasing_tendency(self):
         self.clear()
